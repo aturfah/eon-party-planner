@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './header';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import SideBar from './sidebar';
 import MainPanel from './mainPanel';
 import '../css/App.css';
@@ -14,8 +13,8 @@ class App extends Component {
         <Container>
             <Row><Header></Header></Row>
             <Row>
-                <Col><SideBar></SideBar></Col>
-                <Col><MainPanel></MainPanel></Col>
+                <SideBar xs="3" lg="2"></SideBar>
+                <MainPanel xs="9"></MainPanel>
             </Row>
         </Container>
       </div>
