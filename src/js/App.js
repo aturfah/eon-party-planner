@@ -7,19 +7,38 @@ import MainPanel from './mainPanel';
 import '../css/App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Container>
-            <Row><Header></Header></Row>
-            <Row>
-                <SideBar xs="3" lg="2"></SideBar>
-                <MainPanel xs="9"></MainPanel>
-            </Row>
-        </Container>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            "classes": ["hero", "hero", "hero", "hero", "hero"],
+            "active_panel": 0
+        }
+    }
+
+    update_classes(class_name, index) {
+        console.log("ME!!", this)
+        var new_classes = this.state.classes;
+        new_classes[index] = class_name;
+
+        this.setState({
+            "classes": new_classes,
+            "active_panel": index
+        });        
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <Container>
+                    <Row><Header></Header></Row>
+                    <Row>
+                        <SideBar xs="3" lg="2"></SideBar>
+                        <MainPanel xs="9" active_panel={this.state.active_panel} classes={this.state.classes} update_method={this.update_classes}></MainPanel>
+                    </Row>
+                </Container>
+            </div>
+        );
+    }
 }
 
 export default App;
