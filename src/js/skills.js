@@ -3,6 +3,7 @@ Skill Flags for:
     Ailment: AILMENT_TARGET_TYPE
     Bind: BIND_TARGET_TYPE
     Buff: BUFF_TARGET_[STAT/Type]
+    Non-Buff Boost: BOOST_TARGET_STAT
     Debuff: DEBUFF_TARGET_STAT
     Guard: GUARD_TARGET_TYPE
     Heals: HEAL_TARGET_[HP/Ailment/Binds/FLAGS]
@@ -86,8 +87,81 @@ var skills = {
             "GUARD_PARTY_ELEMGUARD",
             "BUFF_SINGLE_AGGRO"
         ],
-        "negatives": [],
+        "negatives": [
+            "EXTRA_SLOT"
+        ],
         "damage_type": [],
+    },
+    "afterimage": {
+        "name": "Afterimage",
+        "negatives": [
+            "EXTRA_SLOT"
+        ],
+    },
+    "miragesword": {
+        "name": "Mirage Sword",
+        "negatives": [
+            "EXTRA_SLOT"
+        ],
+        "damage_type": [
+            "cut",
+            "ranged"
+        ]
+    },
+    "widebravery": {
+        "name": "Wide Bravery",
+        "damage_type": [
+            "cut",
+            "melee",
+            "single"
+        ],
+        "conditional": {
+            "damage_type": [
+                "cut",
+                "ranged",
+                "aoe"
+            ]
+        }
+    },
+    "frigidslash": {
+        "name": "Frigid Slash",
+        "damage_type": [
+            "ice",
+            "cut",
+            "melee",
+            "splash"
+        ]
+    },
+    "encourage": {
+        "name": "",
+        "healing": [
+            "HEAL_PARTY_HP"
+        ]
+    },
+    "heroicbonds": {
+        "name": "",
+        "conditional": {
+            "dps_support": [
+                "BOOST_SELF_ATTACK",
+                "BOOST_SELF_SPEED"
+            ]
+        }
+    },
+    "physicalshield": {
+        "name": "",
+        "damage_type": [
+            "bash",
+            "melee",
+            "single"
+        ]
+    },
+    "clearmind": {
+        "name": "",
+        "healing": [
+            "HEAL_SELF_AILMENT",
+            "HEAL_SELF_BIND",
+            "HEAL_SELF_TP"
+        ]
     },
 };
 
