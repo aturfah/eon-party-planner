@@ -11,6 +11,7 @@ Skill Flags for:
 
 var skills = {
     "test": {
+        "name": "test skill",
         "id": "test",
         "lockdown": [
             "BIND_SINGLE_HEAD",
@@ -93,12 +94,14 @@ var skills = {
         "damage_type": [],
     },
     "afterimage": {
+        "id": "afterimage",
         "name": "Afterimage",
         "negatives": [
             "EXTRA_SLOT"
         ],
     },
     "miragesword": {
+        "id": "miragesword",
         "name": "Mirage Sword",
         "negatives": [
             "EXTRA_SLOT"
@@ -109,6 +112,7 @@ var skills = {
         ]
     },
     "widebravery": {
+        "id": "widebravery",
         "name": "Wide Bravery",
         "damage_type": [
             "cut",
@@ -124,6 +128,7 @@ var skills = {
         }
     },
     "frigidslash": {
+        "id": "frigidslash",
         "name": "Frigid Slash",
         "damage_type": [
             "ice",
@@ -133,12 +138,14 @@ var skills = {
         ]
     },
     "encourage": {
+        "id": "encourage",
         "name": "Encourage",
         "healing": [
             "HEAL_PARTY_HP"
         ]
     },
     "heroicbonds": {
+        "id": "heroicbonds",
         "name": "Heroic Bonds",
         "conditional": {
             "dps_support": [
@@ -148,6 +155,7 @@ var skills = {
         }
     },
     "physicalshield": {
+        "id": "physicalshield",
         "name": "Physical Shield",
         "damage_type": [
             "bash",
@@ -156,6 +164,7 @@ var skills = {
         ]
     },
     "clearmind": {
+        "id": "clearmind",
         "name": "Clear Mind",
         "healing": [
             "HEAL_SELF_AILMENT",
