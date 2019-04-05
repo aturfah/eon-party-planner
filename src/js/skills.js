@@ -133,13 +133,13 @@ var skills = {
         ]
     },
     "encourage": {
-        "name": "",
+        "name": "Encourage",
         "healing": [
             "HEAL_PARTY_HP"
         ]
     },
     "heroicbonds": {
-        "name": "",
+        "name": "Heroic Bonds",
         "conditional": {
             "dps_support": [
                 "BOOST_SELF_ATTACK",
@@ -148,7 +148,7 @@ var skills = {
         }
     },
     "physicalshield": {
-        "name": "",
+        "name": "Physical Shield",
         "damage_type": [
             "bash",
             "melee",
@@ -156,7 +156,7 @@ var skills = {
         ]
     },
     "clearmind": {
-        "name": "",
+        "name": "Clear Mind",
         "healing": [
             "HEAL_SELF_AILMENT",
             "HEAL_SELF_BIND",
