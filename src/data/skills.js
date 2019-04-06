@@ -105,6 +105,9 @@ var skills = {
     "miragesword": {
         "id": "miragesword",
         "type": "novice",
+        "requires": {
+            "afterimage": 1
+        },
         "name": "Mirage Sword",
         "negatives": [
             "EXTRA_SLOT"
@@ -154,6 +157,9 @@ var skills = {
         "id": "heroicbonds",
         "type": "novice",
         "name": "Heroic Bonds",
+        "requires": {
+            "encourage": 1
+        },
         "conditional": {
             "dps_support": [
                 "BOOST_SELF_ATTACK",
@@ -184,13 +190,61 @@ var skills = {
     "chargeimage": {
         "name": "Charge Image",
         "id": "chargeimage",
+        "requires": {
+            "miragesword": 2
+        },
         "type": "veteran",
         "dps_support": [
             "BOOST_SELF_ATTACK"
         ]
     },
     "gracefulimage": {
-        "id": "gracefulimage"
+        "id": "gracefulimage",
+        "name": "Graceful Image",
+        "requires": {
+            "chargeimage": 2
+        },
+        "conditional": {
+            "healing": [
+                "HEAL_SELF_TP"
+            ]
+        }
+    },
+    "sparkblade": {
+        "id": "sparkblade",
+        "name": "Spark Blade",
+        "requires": {
+            "frigidslash": 2
+        },
+        "damage_type": [
+            "cut",
+            "volt",
+            "ranged"
+        ]
+    },
+    "burstblade": {
+        "id": "burstblade",
+        "name": "Burst Blade",
+        "requires": {
+            "sparkblade": 2
+        },
+        "damage_type": [
+            "cut",
+            "melee"
+        ]
+    },
+    "heroicsteel": {
+        "id": "heroicsteel",
+        "name": "Heroic Steel",
+        "requires": {
+            "heroicbonds": 2
+        },
+        "conditional": {
+            "dmg_mitigation": [
+                "BOOST_SELF_DEFENSE",
+                "BOOST_SELF_AGGRO"
+            ]
+        }
     }
 };
 
