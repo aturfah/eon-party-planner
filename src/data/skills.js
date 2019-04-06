@@ -13,6 +13,7 @@ var skills = {
     "test": {
         "name": "test skill",
         "id": "test",
+        "type": "novice",
         "lockdown": [
             "BIND_SINGLE_HEAD",
             "BIND_SINGLE_ARM",
@@ -95,6 +96,7 @@ var skills = {
     },
     "afterimage": {
         "id": "afterimage",
+        "type": "novice",
         "name": "Afterimage",
         "negatives": [
             "EXTRA_SLOT"
@@ -102,6 +104,7 @@ var skills = {
     },
     "miragesword": {
         "id": "miragesword",
+        "type": "novice",
         "name": "Mirage Sword",
         "negatives": [
             "EXTRA_SLOT"
@@ -113,6 +116,7 @@ var skills = {
     },
     "widebravery": {
         "id": "widebravery",
+        "type": "novice",
         "name": "Wide Bravery",
         "damage_type": [
             "cut",
@@ -129,6 +133,7 @@ var skills = {
     },
     "frigidslash": {
         "id": "frigidslash",
+        "type": "novice",
         "name": "Frigid Slash",
         "damage_type": [
             "ice",
@@ -139,6 +144,7 @@ var skills = {
     },
     "encourage": {
         "id": "encourage",
+        "type": "novice",
         "name": "Encourage",
         "healing": [
             "HEAL_PARTY_HP"
@@ -146,6 +152,7 @@ var skills = {
     },
     "heroicbonds": {
         "id": "heroicbonds",
+        "type": "novice",
         "name": "Heroic Bonds",
         "conditional": {
             "dps_support": [
@@ -156,6 +163,7 @@ var skills = {
     },
     "physicalshield": {
         "id": "physicalshield",
+        "type": "novice",
         "name": "Physical Shield",
         "damage_type": [
             "bash",
@@ -165,6 +173,7 @@ var skills = {
     },
     "clearmind": {
         "id": "clearmind",
+        "type": "novice",
         "name": "Clear Mind",
         "healing": [
             "HEAL_SELF_AILMENT",
@@ -172,6 +181,17 @@ var skills = {
             "HEAL_SELF_TP"
         ]
     },
+    "chargeimage": {
+        "name": "Charge Image",
+        "id": "chargeimage",
+        "type": "veteran",
+        "dps_support": [
+            "BOOST_SELF_ATTACK"
+        ]
+    },
+    "gracefulimage": {
+        "id": "gracefulimage"
+    }
 };
 
 console.log(skills)
