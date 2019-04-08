@@ -7,6 +7,11 @@ class SubPanel extends Component {
         console.log(props)
     }
 
+    replace_class() {
+        console.log("CLICKED!!")
+        this.props.update_method('protector', this.props.index)
+    }
+
     render() {
         let className = "SubPanel";
         if (this.props.visible === false) {
@@ -15,7 +20,7 @@ class SubPanel extends Component {
 
         return (
             <div className={className}>
-                SubPanel Goes Here (I am {this.props.chosen_class})
+                SubPanel Goes Here (I am {this.props.chosen_class} <button onClick={this.replace_class.bind(this)} >Click Me!</button>)
             </div>
         );
     }

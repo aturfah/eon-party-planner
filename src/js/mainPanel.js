@@ -13,7 +13,7 @@ class MainPanel extends Component {
             if(active_panel === index) {
                 is_active_panel = true
             }
-            sub_panels.push(<SubPanel chosen_class={val} visible={is_active_panel} update_method={update_method}></SubPanel>)
+            sub_panels.push(<SubPanel chosen_class={val} visible={is_active_panel} index={index} update_method={update_method}></SubPanel>)
         });
         console.log(sub_panels)
         return (

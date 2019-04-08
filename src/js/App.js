@@ -23,7 +23,7 @@ class App extends Component {
         this.setState({
             "classes": new_classes,
             "active_panel": index
-        });        
+        });
     }
 
     render() {
@@ -33,7 +33,7 @@ class App extends Component {
                     <Row><Header></Header></Row>
                     <Row>
                         <SideBar xs="3" lg="2"></SideBar>
-                        <MainPanel xs="9" active_panel={this.state.active_panel} classes={this.state.classes} update_method={this.update_classes}></MainPanel>
+                        <MainPanel xs="9" active_panel={this.state.active_panel} classes={this.state.classes} update_method={this.update_classes.bind(this)}></MainPanel>
                     </Row>
                 </Container>
             </div>
