@@ -9,10 +9,9 @@ import '../css/App.css';
 
 function importAll(r) {
     let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    r.keys().forEach((item, index) => { images[item.replace('./', '')] = r(item); });
     return images;
 }
-
 
 class App extends Component {
     constructor(props) {
