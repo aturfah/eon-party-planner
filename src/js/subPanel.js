@@ -26,7 +26,7 @@ class SubPanel extends Component {
 
         return (
             <div className={className}>
-                SubPanel Goes Here (I am {this.props.chosen_class} <button onClick={this.replace_class.bind(this)} >Click Me!</button>)
+                SubPanel Goes Here (I am {this.props.chosen_class} @ panel {this.props.index} <button onClick={this.replace_class.bind(this)} >Click Me!</button>)
             </div>
         );
     }
