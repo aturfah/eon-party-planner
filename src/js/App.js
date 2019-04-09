@@ -15,15 +15,17 @@ class App extends Component {
         }
     }
 
-    update_classes(class_name, index) {
-        console.log("ME!!", this)
-        var new_classes = this.state.classes;
-        new_classes[index] = class_name;
+    change_panel(index) {
+        console.log("Changing panel");
+        var newState = this.state;
+        newState.active_panel = index
+        this.setState(newState)
+    }
 
-        this.setState({
-            "classes": new_classes,
-            "active_panel": index
-        });
+    update_classes(class_name, index) {
+        var newState = this.state;
+        newState.classes[index] = class_name;
+        this.setState(newState);
     }
 
     render() {
@@ -33,7 +35,7 @@ class App extends Component {
                     <Row><Header></Header></Row>
                     <Row>
                         <SideBar xs="3" lg="2"></SideBar>
-                        <MainPanel xs="9" active_panel={this.state.active_panel} classes={this.state.classes} update_method={this.update_classes.bind(this)}></MainPanel>
+                        <MainPanel xs="9" active_panel={this.state.active_panel} classes={this.state.classes} change_panel={this.change_panel.bind(this)} update_method={this.update_classes.bind(this)}></MainPanel>
                     </Row>
                 </Container>
             </div>
