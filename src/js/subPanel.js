@@ -9,7 +9,13 @@ class SubPanel extends Component {
 
     replace_class() {
         console.log("CLICKED!!")
-        this.props.update_method('protector', this.props.index)
+        var new_name = null;
+        if (this.props.chosen_class === "hero") {
+            new_name = "protector"
+        } else {
+            new_name = "hero"
+        }
+        this.props.update_method(new_name, this.props.index)
     }
 
     render() {
