@@ -96,4 +96,4 @@ var classes = {
     }
 };
 
-console.log(classes);
+export default classes;

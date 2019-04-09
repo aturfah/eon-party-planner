@@ -23,10 +23,15 @@ class SubPanel extends Component {
         if (this.props.visible === false) {
             className += ' invisible-panel'
         }
+        var selectedClass = this.props.selectable_classes[this.props.chosen_class];
+        var image_url = this.props.images[this.props.chosen_class + '.png'];
 
         return (
             <div className={className}>
-                SubPanel Goes Here (I am {this.props.chosen_class} @ panel {this.props.index} <button onClick={this.replace_class.bind(this)} >Click Me!</button>)
+                SubPanel Goes Here (I am {selectedClass.name} @ panel {this.props.index} <button onClick={this.replace_class.bind(this)} >Click Me!</button>)
+
+                <img src={image_url} alt={selectedClass.name + " Image"} height='250px'></img>
+
             </div>
         );
     }
