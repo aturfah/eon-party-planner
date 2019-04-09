@@ -18,7 +18,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            "classes": ["hero", "hero", "hero", "hero", "hero"],
+            "classes": ["hero", "sovereign", "warmagus", "nightseeker", "pugilist"],
             "active_panel": 0
         };
         this.images = importAll(require.context('../img', false, /\.(png|jpe?g|svg)$/))
