@@ -1,12 +1,16 @@
 .panelTab {
     text-align: center;
     padding: 5px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+
 }
 
 .activeTab {
-    background-color: green;
+    border-bottom-style: none;
 }
 
 .inactiveTab {
-    background-color: red;
+    border-bottom-width: 2px;
 }

@@ -22,6 +22,8 @@ class SubPanel extends Component {
         let className = "SubPanel";
         if (this.props.visible === false) {
             className += ' invisible-panel'
+        } else {
+            className += ' visible-panel'
         }
         var selectedClass = this.props.selectable_classes[this.props.chosen_class];
         var image_url = this.props.images[this.props.chosen_class + '.png'];
