@@ -14,7 +14,6 @@ class MainPanel extends Component {
         var panel_tabs = []
         var selectable_classes = this.props.selectable_classes
         this.props.classes.forEach(function(val, index) {
-            // console.log(val, index)
             var is_active_panel = false;
             if(active_panel === index) {
                 is_active_panel = true

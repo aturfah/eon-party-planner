@@ -2,11 +2,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import React, { Component } from 'react';
 
 class ClassDropdown extends Component {
-    constructor(props) {
-        super(props)
-        console.log(props)
-    }
-
     panelSelect(event) {
         var parsed_event = event.split("|");
         this.props.update_method(parsed_event[0], parseInt(parsed_event[1]))

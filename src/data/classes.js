@@ -1,7 +1,21 @@
 var classes = {
     "hero": {
         "name": "Hero",
-        "skills": [],
+        "skills": [
+            "afterimage",
+            "miragesword",
+            "widebravery",
+            "frigidslash",
+            "encourage",
+            "heroicbonds",
+            "physicalshield",
+            "clearmind",
+            "chargeimage",
+            "gracefulimage",
+            "sparkblade",
+            "burstblade",
+            "heroicsteel"
+        ],
         "img_url": "static/eox-img/hero.png"
     },
     "survivalist": {

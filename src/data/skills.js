@@ -247,5 +247,3 @@ var skills = {
         }
     }
 };
-
-console.log(skills)

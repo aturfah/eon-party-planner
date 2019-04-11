@@ -3,11 +3,6 @@ import ClassDropdown from './classDropdown';
 import '../css/subPanel.css'
 
 class SubPanel extends Component {
-    constructor(props) {
-        super(props);
-        console.log(props)
-    }
-
     render() {
         let className = "SubPanel";
         if (this.props.visible === false) {
@@ -17,7 +12,9 @@ class SubPanel extends Component {
         }
         var selectedClass = this.props.selectable_classes[this.props.chosen_class];
         var image_url = this.props.images[this.props.chosen_class + '.png'];
+        var classSkills = selectedClass.skills;
 
+        console.log("HERE")
         return (
             <div className={className}>
                 <ClassDropdown selectable_classes={this.props.selectable_classes} update_method={this.props.update_method} panel_index={this.props.index} active_class={this.props.chosen_class}></ClassDropdown>
