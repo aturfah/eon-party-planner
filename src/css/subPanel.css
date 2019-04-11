@@ -2,3 +2,7 @@
     display: none;
     background-color: #003366;;
 }
+
+.visible-panel {
+    padding-top: 10px;
+}

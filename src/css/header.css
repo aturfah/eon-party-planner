@@ -3,5 +3,13 @@ div.Header h5 a:link,
 div.Header h5 a:hover,
 div.Header h5 a:visited {
     text-decoration: none;
-    color: black;
+    color: inherit;
+}
+
+div.Header {
+    background-color: #2855AB;
+    color: white;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 100%;
 }
