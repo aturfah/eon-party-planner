@@ -6,4 +6,4 @@
 - `npm run deploy` deploys app to github pages
 
 ## Online version
-Check it out live @ [doot](doot.txt)
+Check it out live @ [https://aturfah.github.io/eon-party-planner/](https://aturfah.github.io/eon-party-planner/)
