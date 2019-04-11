@@ -29,7 +29,7 @@ class SideBar extends Component {
         this.props.classes.forEach(function (val, index) {
             console.log(val, index)
             var image_url = image_urls[val + '.png'];
-            class_images.push(<img key={index} src={image_url} alt={"Class"} width="18%" height="100%"></img>)
+            class_images.push(<img key={index} src={image_url} alt={"Class"} width="20%" maxheight="100%"></img>)
         });
 
         return (

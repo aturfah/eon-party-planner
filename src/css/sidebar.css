@@ -8,6 +8,7 @@
 .image-pane {
     margin: auto;
     display: inline-block;
-    width: 90%;
+    width: 95%;
     padding-top: 10px;
+    height: 15%;
 }
