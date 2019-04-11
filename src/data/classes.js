@@ -14,7 +14,8 @@ var classes = {
             "gracefulimage",
             "sparkblade",
             "burstblade",
-            "heroicsteel"
+            "heroicsteel",
+            "greatbravery"
         ],
         "img_url": "static/eox-img/hero.png"
     },
