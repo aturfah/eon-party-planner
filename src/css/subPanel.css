@@ -6,3 +6,8 @@
 .visible-panel {
     padding-top: 10px;
 }
+
+.reset-button {
+    margin-left: 10px;
+    padding-left: 10px;
+}

@@ -1,4 +1,5 @@
 import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 import React, { Component } from 'react';
 
 class ClassDropdown extends Component {
@@ -13,7 +14,7 @@ class ClassDropdown extends Component {
         var panel_index = this.props.panel_index
         var dropdown_options = []
         var class_data = this.props.selectable_classes;
-        Object.keys(this.props.selectable_classes).sort().forEach(function(val, index) {
+        Object.keys(this.props.selectable_classes).sort().forEach(function (val, index) {
             var active_flag = false;
             if (val === active_class) {
                 active_flag = true;
@@ -25,15 +26,9 @@ class ClassDropdown extends Component {
             )
         });
 
-        return <Dropdown onSelect={panel_select_func}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                {this.props.selectable_classes[this.props.active_class].name}
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-                {dropdown_options}
-            </Dropdown.Menu>
-        </Dropdown>
+        return <DropdownButton onSelect={panel_select_func} title={this.props.selectable_classes[this.props.active_class].name}>
+            {dropdown_options}
+        </DropdownButton>
     }
 }
 

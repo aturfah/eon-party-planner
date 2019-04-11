@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import ClassDropdown from './classDropdown';
+import Button from 'react-bootstrap/Button';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+
 import '../css/subPanel.css'
 
 class SubPanel extends Component {
@@ -22,6 +25,7 @@ class SubPanel extends Component {
         });
     }
 
+
     render() {
         let className = "SubPanel";
         if (this.props.visible === false) {
@@ -37,7 +41,11 @@ class SubPanel extends Component {
 
         return (
             <div className={className}>
-                <ClassDropdown selectable_classes={this.props.selectable_classes} update_method={this.props.update_method} panel_index={this.props.index} active_class={this.props.chosen_class}></ClassDropdown>
+                <ButtonToolbar>
+                    <ClassDropdown selectable_classes={this.props.selectable_classes} update_method={this.props.update_method} panel_index={this.props.index} active_class={this.props.chosen_class}></ClassDropdown>
+                    <Button  className="reset-button" variant="danger">Reset Skills</Button>
+                </ButtonToolbar>
+                
                 (I am {selectedClass.name} @ panel {this.props.index})
                 {skillMenu}
 
