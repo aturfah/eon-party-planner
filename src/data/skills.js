@@ -259,3 +259,5 @@ var skills = {
         }
     }
 };
+
+export default skills;
