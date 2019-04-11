@@ -38,10 +38,10 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <Container>
+            <div className="App h-100">
+                <Container fluid={true} className="h-100">
                     <Row className='HeaderRow'><Header></Header></Row>
-                    <Row>
+                    <Row className="h-100">
                         <SideBar xs="3" lg="2"></SideBar>
                         <MainPanel xs="9" images={this.images} active_panel={this.state.active_panel} selectable_classes={classes} classes={this.state.classes} change_panel={this.change_panel.bind(this)} update_method={this.update_classes.bind(this)}></MainPanel>
                     </Row>

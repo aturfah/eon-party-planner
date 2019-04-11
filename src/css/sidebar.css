@@ -1,0 +1,6 @@
+.SideBar {
+    border-right-color: black;
+    border-right-width: 3px;
+    border-right-style: solid;
+    flex-grow : 1;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Col from 'react-bootstrap/Col';
+import '../css/sidebar.css';
 
 class SideBar extends Component {
     constructor(props) {
