@@ -245,5 +245,17 @@ var skills = {
                 "BOOST_SELF_AGGRO"
             ]
         }
+    },
+    "greatbravery": {
+        "id": "greatbravery",
+        "name": "Great Bravery",
+        "requires": {
+            "heroicsteel": 2
+        },
+        "conditional": {
+            "dmg_mitigation": {
+
+            }
+        }
     }
 };
