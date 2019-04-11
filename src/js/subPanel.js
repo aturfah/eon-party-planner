@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ClassDropdown from './classDropdown';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import skills from '../data/skills';
+import SkillTab from './skillTab';
 
 import '../css/subPanel.css'
 
@@ -15,16 +17,33 @@ class SubPanel extends Component {
     }
 
     toggleSkill(skillName) {
-        console.log(skillName);
+        console.log("NAME", skillName);
         var newSkills = this.state.chosenSkills;
         if (!newSkills.includes(skillName)) {
             newSkills.push(skillName);
-        }
+        };
+        console.log(newSkills);
         this.setState({
             "chosenSkills": newSkills
         });
     }
 
+    toggleSkillHover(skillName) {
+        if (skillName === null) {
+            return;
+        }
+        console.log("Hovering over " + skillName);
+    }
+
+    buildSkillMenu(classSkills, toggleCallback, hoverCallback) {
+        var output = []
+        classSkills.forEach(function(val, index) {
+            console.log(val, index);
+            var skillData = skills[val];
+            output.push(<SkillTab key={val} updateCallback={toggleCallback} hoverCallback={hoverCallback} skillData={skillData}></SkillTab>)
+        });
+        return output;
+    }
 
     render() {
         let className = "SubPanel";
@@ -36,8 +55,7 @@ class SubPanel extends Component {
         var selectedClass = this.props.selectable_classes[this.props.chosen_class];
         var classSkills = selectedClass.skills;
 
-        console.log(classSkills)
-        var skillMenu = []
+        var skillMenu = this.buildSkillMenu(classSkills, this.toggleSkill.bind(this), this.toggleSkillHover.bind(this));
 
         return (
             <div className={className}>
@@ -45,7 +63,7 @@ class SubPanel extends Component {
                     <ClassDropdown selectable_classes={this.props.selectable_classes} update_method={this.props.update_method} panel_index={this.props.index} active_class={this.props.chosen_class}></ClassDropdown>
                     <Button  className="reset-button" variant="danger">Reset Skills</Button>
                 </ButtonToolbar>
-                
+
                 (I am {selectedClass.name} @ panel {this.props.index})
                 {skillMenu}
 
