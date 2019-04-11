@@ -25,7 +25,6 @@ class MainPanel extends Component {
 
         return (
             <Col className="MainPanel">
-                MainPanel Goes Here
                 <Row>{panel_tabs}</Row>
                 {sub_panels}
             </Col>
