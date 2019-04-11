@@ -19,7 +19,7 @@ class PanelTab extends Component {
         }
 
         return <Col className={classes} onClick={this.select_panel.bind(this)}>
-            {displayClassInfo.name}|{this.props.index}
+            <h4>{displayClassInfo.name}|{this.props.index}</h4>
         </Col>
     }
 }
