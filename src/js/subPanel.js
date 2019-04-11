@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ClassDropdown from './classDropdown';
 import '../css/subPanel.css'
 
 class SubPanel extends Component {
@@ -30,6 +31,8 @@ class SubPanel extends Component {
 
         return (
             <div className={className}>
+                <ClassDropdown selectable_classes={this.props.selectable_classes} update_method={this.props.update_method} panel_index={this.props.index} active_class={this.props.chosen_class}></ClassDropdown>
+
                 SubPanel Goes Here (I am {selectedClass.name} @ panel {this.props.index} <button onClick={this.replace_class.bind(this)} >Click Me!</button>)
 
                 <img src={image_url} alt={selectedClass.name + " Image"} height='250px'></img>
