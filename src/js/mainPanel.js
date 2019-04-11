@@ -19,8 +19,8 @@ class MainPanel extends Component {
             if(active_panel === index) {
                 is_active_panel = true
             }
-            sub_panels.push(<SubPanel chosen_class={val} images={images} visible={is_active_panel} selectable_classes={selectable_classes} index={index} update_method={update_method}></SubPanel>)
-            panel_tabs.push(<PanelTab chosen_class={val} change_panel={change_panel} selectable_classes={selectable_classes} visible={is_active_panel} index={index}></PanelTab>)
+            sub_panels.push(<SubPanel key={index} chosen_class={val} images={images} visible={is_active_panel} selectable_classes={selectable_classes} index={index} update_method={update_method}></SubPanel>)
+            panel_tabs.push(<PanelTab key={index} chosen_class={val} change_panel={change_panel} selectable_classes={selectable_classes} visible={is_active_panel} index={index}></PanelTab>)
         });
 
         return (

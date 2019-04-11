@@ -24,8 +24,9 @@ class ClassDropdown extends Component {
                 active_flag = true;
             }
             var display_name = class_data[val].name;
+            var object_key = val + "|" + panel_index
             dropdown_options.push(
-                <Dropdown.Item eventKey={val + "|" + panel_index} disabled={active_flag}>{display_name}</Dropdown.Item>
+                <Dropdown.Item key={object_key} eventKey={object_key} disabled={active_flag}>{display_name}</Dropdown.Item>
             )
         });
 
