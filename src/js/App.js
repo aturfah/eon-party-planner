@@ -40,7 +40,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Container>
-                    <Row><Header></Header></Row>
+                    <Row className='HeaderRow'><Header></Header></Row>
                     <Row>
                         <SideBar xs="3" lg="2"></SideBar>
                         <MainPanel xs="9" images={this.images} active_panel={this.state.active_panel} selectable_classes={classes} classes={this.state.classes} change_panel={this.change_panel.bind(this)} update_method={this.update_classes.bind(this)}></MainPanel>
