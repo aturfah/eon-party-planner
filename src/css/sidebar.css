@@ -4,3 +4,10 @@
     border-right-style: solid;
     flex-grow : 1;
 }
+
+.image-pane {
+    margin: auto;
+    display: inline-block;
+    width: 90%;
+    padding-top: 10px;
+}

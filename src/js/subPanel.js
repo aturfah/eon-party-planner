@@ -13,7 +13,7 @@ class SubPanel extends Component {
 
     toggleSkill(skillName) {
         console.log(skillName);
-        newSkills = this.state.chosenSkills;
+        var newSkills = this.state.chosenSkills;
         if (!newSkills.includes(skillName)) {
             newSkills.push(skillName);
         }
@@ -30,7 +30,6 @@ class SubPanel extends Component {
             className += ' visible-panel'
         }
         var selectedClass = this.props.selectable_classes[this.props.chosen_class];
-        var image_url = this.props.images[this.props.chosen_class + '.png'];
         var classSkills = selectedClass.skills;
 
         console.log(classSkills)
@@ -41,7 +40,6 @@ class SubPanel extends Component {
                 <ClassDropdown selectable_classes={this.props.selectable_classes} update_method={this.props.update_method} panel_index={this.props.index} active_class={this.props.chosen_class}></ClassDropdown>
                 (I am {selectedClass.name} @ panel {this.props.index})
                 {skillMenu}
-                <img src={image_url} alt={selectedClass.name + " Image"} height='250px'></img>
 
             </div>
         );
