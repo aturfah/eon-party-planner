@@ -18,7 +18,14 @@ class App extends Component {
         super(props);
         this.state = {
             "classes": ["hero", "landschnekht", "harbinger", "gunner", "sovereign"],
-            "active_panel": 0
+            "active_panel": 0,
+            "skills": [
+                [],
+                [],
+                [],
+                [],
+                [],
+            ]
         };
         this.images = importAll(require.context('../img', false, /\.(png|jpe?g|svg)$/))
     }
@@ -34,6 +41,10 @@ class App extends Component {
         var newState = this.state;
         newState.classes[index] = class_name;
         this.setState(newState);
+    }
+
+    update_skills(skill_name, index) {
+        console.log("Adding " + skill_name + " to" + index);
     }
 
     render() {
