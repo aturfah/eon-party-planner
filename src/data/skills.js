@@ -143,7 +143,10 @@ var skills = {
             "cut",
             "melee",
             "splash"
-        ]
+        ],
+        "requires": {
+            "widebravery": 1
+        }
     },
     "encourage": {
         "id": "encourage",
