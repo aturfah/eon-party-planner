@@ -3,12 +3,23 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Dropdown element for class selection
+ */
 class ClassDropdown extends Component {
+  /**
+   * Changes class in active panel
+   * @param {String} event Composite key of class/panel number to update
+   */
   panelSelect(event) {
     const parsedEvent = event.split('|');
     this.props.update_method(parsedEvent[0], parseInt(parsedEvent[1]));
   }
 
+  /**
+   * Renders this React class
+   * @return {div} Rendered dropdown button
+   */
   render() {
     const activeClass = this.props.active_class;
     const panelSelectFunc = this.panelSelect.bind(this);
