@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class SkillTab extends Component {
   onHoverFunc() {
@@ -36,4 +37,10 @@ class SkillTab extends Component {
   }
 }
 
+SkillTab.propTypes = {
+  skillData: PropTypes.object,
+  hoverCallback: PropTypes.func,
+  updateCallback: PropTypes.func,
+  active: PropTypes.bool,
+};
 export default SkillTab;
