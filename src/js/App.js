@@ -76,9 +76,10 @@ class App extends Component {
    * @param {Integer} index Index of panel to switch to
    */
   updateSkills(skillList, index) {
-    console.log('Updating Skills for panel #' + index);
+    console.log('Updating Skills for panel #', index);
     const newState = this.state;
     newState.skills[index] = skillList;
+    console.log(newState.skills)
     this.setState(newState);
   }
 

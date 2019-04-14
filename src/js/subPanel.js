@@ -80,8 +80,6 @@ class SubPanel extends Component {
         }
     );
 
-    console.log('New Skills', newSkills);
-
     this.setState({
       'chosenSkills': newSkills,
     });
