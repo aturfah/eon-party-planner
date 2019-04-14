@@ -14,8 +14,8 @@ class ClassDropdown extends Component {
     const panelIndex = this.props.panel_index;
     const dropdownOptions = [];
     const classData = this.props.selectable_classes;
-    const selectableClasses = Object.keys(this.props.selectable_classes).sort()
-    selectableClasses.forEach(function(val, index) {
+    const selectableClasses = Object.keys(this.props.selectable_classes);
+    selectableClasses.sort().forEach(function(val, index) {
       let activeFlag = false;
       if (val === activeClass) {
         activeFlag = true;
@@ -32,9 +32,13 @@ class ClassDropdown extends Component {
       );
     });
 
-    return <DropdownButton onSelect={panelSelectFunc} title={this.props.selectable_classes[this.props.active_class].name}>
-      {dropdownOptions}
-    </DropdownButton>;
+    return (
+      <DropdownButton
+        onSelect={panelSelectFunc}
+        title={this.props.selectable_classes[this.props.active_class].name}>
+        {dropdownOptions}
+      </DropdownButton>
+    );
   }
 }
 
