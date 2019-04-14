@@ -3,7 +3,14 @@ import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 
+/**
+ * Side Bar to display aggregated info
+ */
 class SideBar extends Component {
+  /**
+   * Constructor
+   * @param {object} props Object properties
+   */
   constructor(props) {
     super(props);
 
@@ -24,6 +31,10 @@ class SideBar extends Component {
     }
   }
 
+  /**
+   * Renders this React class
+   * @return {div} Rendered app
+   */
   render() {
     const classImages = [];
     const imageUrls = this.props.images;
