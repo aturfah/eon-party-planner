@@ -19,8 +19,6 @@ class PanelTab extends Component {
    * @return {div} Rendered app
    */
   render() {
-    console.log(this.props.selectable_classes)
-
     const chosenClassId = this.props.chosen_class;
     const displayClassInfo = this.props.selectable_classes[chosenClassId];
     let classes = 'panelTab ';
