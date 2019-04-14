@@ -33,6 +33,27 @@ function getRequirements(skillName, allSkills) {
 }
 
 
+function buildSkillTrees(classSkills, allSkillData) {
+  const classSkillData = [];
+  classSkills.forEach(function (skillName) {
+    const skillData = allSkillData[skillName];
+    classSkillData.push(skillData);
+  }); 
+
+  const flattenedDependencies = {};
+  classSkillData.forEach(function (skillDat) {
+    flattenedDependencies[skillDat.id] = skillDat.requires || {}
+  });
+
+  console.log(classSkillData);
+  console.log(flattenedDependencies);
+
+}
+
+function buildSkillTreesHelper(skillData, remainingSkills) {
+  console.log(skillData, remainingSkills);
+}
+
 /**
  * Panel that displays data for a class
  */
@@ -73,7 +94,7 @@ class SubPanel extends Component {
 
     // Check if this skills' requirements are also met
     getRequirements(skillName, this.props.all_skills).forEach(
-        function(requiredSkill, index) {
+        function(requiredSkill) {
           if (!newSkills.includes(requiredSkill)) {
             newSkills.push(requiredSkill);
           }
@@ -146,6 +167,8 @@ class SubPanel extends Component {
         this.state.chosenSkills,
         this.toggleSkill.bind(this),
         this.toggleSkillHover.bind(this));
+
+    buildSkillTrees(classSkills, this.props.all_skills);
 
     return (
       <div className={className}>
