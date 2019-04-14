@@ -6,27 +6,48 @@ import PanelTab from './panelTab';
 
 class MainPanel extends Component {
   render() {
-    const active_panel = this.props.active_panel;
-    const update_method = this.props.update_method;
-    const update_skills = this.props.update_skills;
-    const change_panel = this.props.change_panel;
+    const activePanel = this.props.active_panel;
+    const updateMethod = this.props.update_method;
+    const updateSkills = this.props.update_skills;
+    const changePanel = this.props.change_panel;
     const images = this.props.images;
-    const sub_panels = [];
-    const panel_tabs = [];
-    const selectable_classes = this.props.selectable_classes;
-    this.props.classes.forEach(function(val, index) {
-      let is_active_panel = false;
-      if (active_panel === index) {
-        is_active_panel = true;
+    const subPanels = [];
+    const panelTabs = [];
+    const selectableClasses = this.props.selectable_classes;
+    const allClasses = this.props.classes;
+    allClasses.forEach(function(val, index) {
+      let isActivePanel = false;
+      if (activePanel === index) {
+        isActivePanel = true;
       }
-      sub_panels.push(<SubPanel key={index} chosen_class={val} images={images} visible={is_active_panel} selectable_classes={selectable_classes} index={index} update_method={update_method} update_skills={update_skills}></SubPanel>);
-      panel_tabs.push(<PanelTab key={index} chosen_class={val} change_panel={change_panel} selectable_classes={selectable_classes} visible={is_active_panel} index={index}></PanelTab>);
+      subPanels.push(
+          <SubPanel
+            key={index}
+            chosen_class={val}
+            images={images}
+            visible={isActivePanel}
+            selectable_classes={selectableClasses}
+            index={index}
+            update_method={updateMethod}
+            update_skills={updateSkills}>
+          </SubPanel>
+      );
+      panelTabs.push(
+          <PanelTab
+            key={index}
+            chosen_class={val}
+            change_panel={changePanel}
+            selectable_classes={selectableClasses}
+            visible={isActivePanel}
+            index={index}>
+          </PanelTab>
+      );
     });
 
     return (
       <Col className="MainPanel">
-        <Row>{panel_tabs}</Row>
-        {sub_panels}
+        <Row>{panelTabs}</Row>
+        {subPanels}
       </Col>
     );
   }
