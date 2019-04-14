@@ -254,7 +254,7 @@ var skills = {
         },
         "conditional": {
             "dmg_mitigation": {
-
+                
             }
         }
     }
