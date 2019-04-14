@@ -12,6 +12,10 @@ import '../css/subPanel.css';
  * Panel that displays data for a class
  */
 class SubPanel extends Component {
+  /**
+   * Initializes Panel
+   * @param {Object} props Properties of object
+   */
   constructor(props) {
     super(props);
 
@@ -52,7 +56,8 @@ class SubPanel extends Component {
    * @param {Array} classSkills Skills of class
    * @param {Array} chosenSkills Skills chosen by user
    * @param {Func} toggleCallback Callback function for toggling skill
-   * @param {Fimc} hoverCallback Callback function for hovering over skill
+   * @param {Func} hoverCallback Callback function for hovering over skill
+   * @return {Array} Array of skills to display
    */
   buildSkillMenu(classSkills, chosenSkills, toggleCallback, hoverCallback) {
     const output = [];
