@@ -79,7 +79,7 @@ class App extends Component {
     console.log('Updating Skills for panel #', index);
     const newState = this.state;
     newState.skills[index] = skillList;
-    console.log(newState.skills)
+    console.log(newState.skills);
     this.setState(newState);
   }
 
