@@ -56,7 +56,7 @@ class ClassDropdown extends Component {
 
 ClassDropdown.propTypes = {
   active_class: PropTypes.string,
-  selectable_classes: PropTypes.array,
+  selectable_classes: PropTypes.object,
   update_method: PropTypes.func,
   panel_index: PropTypes.number,
 };

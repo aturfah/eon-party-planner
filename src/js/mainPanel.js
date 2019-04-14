@@ -67,7 +67,7 @@ MainPanel.propTypes = {
   update_method: PropTypes.func,
   change_panel: PropTypes.func,
   images: PropTypes.object,
-  selectable_classes: PropTypes.array,
+  selectable_classes: PropTypes.object,
   classes: PropTypes.array,
 };
 
