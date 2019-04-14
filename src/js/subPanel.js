@@ -8,6 +8,27 @@ import PropTypes from 'prop-types';
 
 import '../css/subPanel.css';
 
+
+function getRequirements(skillName, allSkills) {
+  let skillData = allSkills[skillName];
+  let results = [];
+  let skillReqs = skillData.requires || {};
+
+  Object.keys(skillReqs).forEach(function(value) {
+    console.log(skillName, "requires", value);
+    // Add skill's dependencies
+    results.push(value)
+
+    // Also account for that skills' dependencies
+    getRequirements(value, allSkills).forEach(function(subValue) {
+      results.push(subValue)
+    });
+  });
+  console.log("Dependencies for", skillName, results)
+  return results;
+}
+
+
 /**
  * Panel that displays data for a class
  */
@@ -37,9 +58,15 @@ class SubPanel extends Component {
     };
 
     // Check if this skills' requirements are also met
-    const skillReqs = 5;
-    console.log(this.props.all_skills)
-    console.log(skillReqs);
+    getRequirements(skillName, this.props.all_skills).forEach(
+        function(requiredSkill, index) {
+          if (!newSkills.includes(requiredSkill)) {
+            newSkills.push(requiredSkill);
+          }
+        }
+    );
+
+    console.log("New Skills", newSkills)
 
     this.setState({
       'chosenSkills': newSkills,
@@ -55,7 +82,7 @@ class SubPanel extends Component {
     if (skillName === null) {
       return;
     }
-    console.log('Hovering over ' + skillName);
+    // console.log('Hovering over ' + skillName);
   }
 
   /**
