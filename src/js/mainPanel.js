@@ -71,7 +71,7 @@ MainPanel.propTypes = {
   images: PropTypes.object,
   selectable_classes: PropTypes.object,
   classes: PropTypes.array,
-  skills: PropTypes.object,
+  skills_data: PropTypes.object,
 };
 
 
