@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import SubPanel from './subPanel';
 import PanelTab from './panelTab';
+import PropTypes from 'prop-types';
 
 /**
  * Window with class selection
@@ -18,10 +19,10 @@ class MainPanel extends Component {
     const updateSkills = this.props.update_skills;
     const changePanel = this.props.change_panel;
     const images = this.props.images;
-    const subPanels = [];
-    const panelTabs = [];
     const selectableClasses = this.props.selectable_classes;
     const allClasses = this.props.classes;
+    const subPanels = [];
+    const panelTabs = [];
     allClasses.forEach(function(val, index) {
       let isActivePanel = false;
       if (activePanel === index) {
@@ -59,5 +60,16 @@ class MainPanel extends Component {
     );
   }
 }
+
+MainPanel.propTypes = {
+  active_panel: PropTypes.number,
+  update_skills: PropTypes.func,
+  update_method: PropTypes.func,
+  change_panel: PropTypes.func,
+  images: PropTypes.object,
+  selectable_classes: PropTypes.array,
+  classes: PropTypes.array,
+};
+
 
 export default MainPanel;
