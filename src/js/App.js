@@ -94,7 +94,6 @@ class App extends Component {
           <Row className='HeaderRow'><Header></Header></Row>
           <Row className="BodyRow h-100">
             <SideBar xs="4"
-              lg="4"
               classes={this.state.classes}
               images={this.images}>
             </SideBar>

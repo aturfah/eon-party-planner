@@ -20,12 +20,12 @@ class SideBar extends Component {
       this.xs = this.props.xs;
     }
     if (this.props.sm === undefined) {
-      this.sm = 3;
+      this.sm = this.xs;
     } else {
       this.sm = this.props.sm;
     }
     if (this.props.lg === undefined) {
-      this.lg = 2;
+      this.lg = this.sm;
     } else {
       this.lg = this.props.lg;
     }
