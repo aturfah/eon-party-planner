@@ -50,6 +50,16 @@ class SubPanel extends Component {
   }
 
   /**
+   * Deactivates all skills for this class.
+   */
+  resetSkills() {
+    this.setState({
+      'chosenSkills': [],
+    })
+    this.props.update_skills([], this.props.index);
+  }
+
+  /**
    * Updates skills on selection
    * @param {string} skillName Name of skill
    */
@@ -148,7 +158,7 @@ class SubPanel extends Component {
             panel_index={this.props.index}
             active_class={this.props.chosen_class}>
           </ClassDropdown>
-          <Button className="reset-button" variant="danger">
+          <Button className="reset-button" variant="danger" onClick={this.resetSkills.bind(this)}>
             Reset Skills
           </Button>
         </ButtonToolbar>
