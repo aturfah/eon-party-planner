@@ -64,15 +64,24 @@ class SubPanel extends Component {
     } else {
       className += ' visible-panel';
     }
-    const selectedClass = this.props.selectable_classes[this.props.chosen_class];
+    const selectableClasses = this.props.selectable_classes;
+    const selectedClass = selectableClasses[this.props.chosen_class];
     const classSkills = selectedClass.skills;
 
-    const skillMenu = this.buildSkillMenu(classSkills, this.state.chosenSkills, this.toggleSkill.bind(this), this.toggleSkillHover.bind(this));
+    const skillMenu = this.buildSkillMenu(classSkills,
+        this.state.chosenSkills,
+        this.toggleSkill.bind(this),
+        this.toggleSkillHover.bind(this));
 
     return (
       <div className={className}>
         <ButtonToolbar>
-          <ClassDropdown selectable_classes={this.props.selectable_classes} update_method={this.props.update_method} panel_index={this.props.index} active_class={this.props.chosen_class}></ClassDropdown>
+          <ClassDropdown
+            selectable_classes={selectableClasses}
+            update_method={this.props.update_method}
+            panel_index={this.props.index}
+            active_class={this.props.chosen_class}>
+          </ClassDropdown>
           <Button className="reset-button" variant="danger">Reset Skills</Button>
         </ButtonToolbar>
 
