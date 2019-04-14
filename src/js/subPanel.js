@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import skills from '../data/skills';
 import SkillTab from './skillTab';
+import PropTypes from 'prop-types';
 
 import '../css/subPanel.css';
 
@@ -87,7 +88,7 @@ class SubPanel extends Component {
           </Button>
         </ButtonToolbar>
 
-                (I am {selectedClass.name} @ panel {this.props.index})
+        (I am {selectedClass.name} @ panel {this.props.index})
         {skillMenu}
 
       </div>
@@ -95,4 +96,12 @@ class SubPanel extends Component {
   }
 }
 
+SubPanel.propTypes = {
+  update_skills: PropTypes.func,
+  index: PropTypes.number,
+  visible: PropTypes.bool,
+  selectable_classes: PropTypes.object,
+  chosen_class: PropTypes.string,
+  update_method: PropTypes.func,
+};
 export default SubPanel;
