@@ -43,8 +43,11 @@ class App extends Component {
         this.setState(newState);
     }
 
-    update_skills(skill_name, index) {
-        console.log("Adding " + skill_name + " to" + index);
+    update_skills(skill_list, index) {
+        console.log("Updating Skills for panel #" + index)
+        var newState = this.state;
+        newState.skills[index] = skill_list;
+        this.setState(newState);
     }
 
     render() {
@@ -54,7 +57,7 @@ class App extends Component {
                     <Row className='HeaderRow'><Header></Header></Row>
                     <Row className="BodyRow h-100">
                         <SideBar xs="4" lg="4" classes={this.state.classes} images={this.images}></SideBar>
-                        <MainPanel xs="8" images={this.images} active_panel={this.state.active_panel} selectable_classes={classes} classes={this.state.classes} change_panel={this.change_panel.bind(this)} update_method={this.update_classes.bind(this)}></MainPanel>
+                        <MainPanel xs="8" images={this.images} active_panel={this.state.active_panel} selectable_classes={classes} update_skills={this.update_skills.bind(this)} classes={this.state.classes} change_panel={this.change_panel.bind(this)} update_method={this.update_classes.bind(this)}></MainPanel>
                     </Row>
                 </Container>
             </div>

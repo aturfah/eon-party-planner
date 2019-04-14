@@ -22,10 +22,10 @@ class SubPanel extends Component {
         if (!newSkills.includes(skillName)) {
             newSkills.push(skillName);
         };
-        console.log(newSkills);
         this.setState({
             "chosenSkills": newSkills
         });
+        this.props.update_skills(newSkills, this.props.index);
     }
 
     toggleSkillHover(skillName) {

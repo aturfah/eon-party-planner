@@ -8,6 +8,7 @@ class MainPanel extends Component {
     render() {
         var active_panel = this.props.active_panel;
         var update_method = this.props.update_method;
+        var update_skills = this.props.update_skills
         var change_panel = this.props.change_panel;
         var images = this.props.images;
         var sub_panels = []
@@ -18,7 +19,7 @@ class MainPanel extends Component {
             if(active_panel === index) {
                 is_active_panel = true
             }
-            sub_panels.push(<SubPanel key={index} chosen_class={val} images={images} visible={is_active_panel} selectable_classes={selectable_classes} index={index} update_method={update_method}></SubPanel>)
+            sub_panels.push(<SubPanel key={index} chosen_class={val} images={images} visible={is_active_panel} selectable_classes={selectable_classes} index={index} update_method={update_method} update_skills={update_skills}></SubPanel>)
             panel_tabs.push(<PanelTab key={index} chosen_class={val} change_panel={change_panel} selectable_classes={selectable_classes} visible={is_active_panel} index={index}></PanelTab>)
         });
 
