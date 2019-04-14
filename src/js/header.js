@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 import '../css/header.css';
 
+/**
+ * Top header for application window
+ */
 class Header extends Component {
+  /**
+   * Renders this React class
+   * @return {div} Rendered Header window
+   */
   render() {
     return (
       <div className="Header">
