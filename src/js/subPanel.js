@@ -82,7 +82,9 @@ class SubPanel extends Component {
             panel_index={this.props.index}
             active_class={this.props.chosen_class}>
           </ClassDropdown>
-          <Button className="reset-button" variant="danger">Reset Skills</Button>
+          <Button className="reset-button" variant="danger">
+            Reset Skills
+          </Button>
         </ButtonToolbar>
 
                 (I am {selectedClass.name} @ panel {this.props.index})
