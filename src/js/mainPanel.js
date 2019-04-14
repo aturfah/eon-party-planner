@@ -21,6 +21,7 @@ class MainPanel extends Component {
     const images = this.props.images;
     const selectableClasses = this.props.selectable_classes;
     const allClasses = this.props.classes;
+    const allSkills = this.props.skills_data;
     const subPanels = [];
     const panelTabs = [];
     allClasses.forEach(function(val, index) {
@@ -32,6 +33,7 @@ class MainPanel extends Component {
           <SubPanel
             key={index}
             chosen_class={val}
+            all_skills={allSkills}
             images={images}
             visible={isActivePanel}
             selectable_classes={selectableClasses}
@@ -69,6 +71,7 @@ MainPanel.propTypes = {
   images: PropTypes.object,
   selectable_classes: PropTypes.object,
   classes: PropTypes.array,
+  skills: PropTypes.object,
 };
 
 

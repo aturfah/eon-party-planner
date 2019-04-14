@@ -31,9 +31,16 @@ class SubPanel extends Component {
   toggleSkill(skillName) {
     console.log('NAME', skillName);
     const newSkills = this.state.chosenSkills;
+    // Check if skill is already active
     if (!newSkills.includes(skillName)) {
       newSkills.push(skillName);
     };
+
+    // Check if this skills' requirements are also met
+    const skillReqs = 5;
+    console.log(this.props.all_skills)
+    console.log(skillReqs);
+
     this.setState({
       'chosenSkills': newSkills,
     });
@@ -130,5 +137,6 @@ SubPanel.propTypes = {
   selectable_classes: PropTypes.object,
   chosen_class: PropTypes.string,
   update_method: PropTypes.func,
+  all_skills: PropTypes.object,
 };
 export default SubPanel;

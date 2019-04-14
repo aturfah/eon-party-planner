@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import SideBar from './sidebar';
 import MainPanel from './mainPanel';
 import classes from '../data/classes';
+import skills from '../data/skills';
 import '../css/App.css';
 
 /**
@@ -101,6 +102,7 @@ class App extends Component {
               images={this.images}
               active_panel={this.state.active_panel}
               selectable_classes={classes}
+              skills_data={skills}
               update_skills={this.updateSkills.bind(this)}
               classes={this.state.classes}
               change_panel={this.changePanel.bind(this)}
