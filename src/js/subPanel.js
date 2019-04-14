@@ -32,28 +32,6 @@ function getRequirements(skillName, allSkills) {
   return results;
 }
 
-
-function buildSkillTrees(classSkills, allSkillData) {
-  const classSkillData = [];
-  classSkills.forEach(function (skillName) {
-    const skillData = allSkillData[skillName];
-    classSkillData.push(skillData);
-  }); 
-
-  const flattenedDependencies = {};
-  classSkillData.forEach(function (skillDat) {
-    flattenedDependencies[skillDat.id] = skillDat.requires || {}
-  });
-
-  console.log(classSkillData);
-  console.log(flattenedDependencies);
-
-}
-
-function buildSkillTreesHelper(skillData, remainingSkills) {
-  console.log(skillData, remainingSkills);
-}
-
 /**
  * Panel that displays data for a class
  */
@@ -76,7 +54,7 @@ class SubPanel extends Component {
   resetSkills() {
     this.setState({
       'chosenSkills': [],
-    })
+    });
     this.props.update_skills([], this.props.index);
   }
 
@@ -168,8 +146,6 @@ class SubPanel extends Component {
         this.toggleSkill.bind(this),
         this.toggleSkillHover.bind(this));
 
-    buildSkillTrees(classSkills, this.props.all_skills);
-
     return (
       <div className={className}>
         <ButtonToolbar>
@@ -179,7 +155,10 @@ class SubPanel extends Component {
             panel_index={this.props.index}
             active_class={this.props.chosen_class}>
           </ClassDropdown>
-          <Button className="reset-button" variant="danger" onClick={this.resetSkills.bind(this)}>
+          <Button
+            className="reset-button"
+            variant="danger"
+            onClick={this.resetSkills.bind(this)}>
             Reset Skills
           </Button>
         </ButtonToolbar>
