@@ -4,7 +4,14 @@ import Row from 'react-bootstrap/Row';
 import SubPanel from './subPanel';
 import PanelTab from './panelTab';
 
+/**
+ * Window with class selection
+ */
 class MainPanel extends Component {
+  /**
+   * Renders this React class
+   * @return {div} Rendered app
+   */
   render() {
     const activePanel = this.props.active_panel;
     const updateMethod = this.props.update_method;
