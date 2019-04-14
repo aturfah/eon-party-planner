@@ -9,22 +9,26 @@ import PropTypes from 'prop-types';
 import '../css/subPanel.css';
 
 
+/**
+ * Get requirements for a skill
+ * @param {string} skillName Name of skill
+ * @param {object} allSkills All skill data
+ * @return {array} Array of all skill's dependencies
+ */
 function getRequirements(skillName, allSkills) {
-  let skillData = allSkills[skillName];
-  let results = [];
-  let skillReqs = skillData.requires || {};
+  const skillData = allSkills[skillName];
+  const results = [];
+  const skillReqs = skillData.requires || {};
 
   Object.keys(skillReqs).forEach(function(value) {
-    console.log(skillName, "requires", value);
     // Add skill's dependencies
-    results.push(value)
+    results.push(value);
 
     // Also account for that skills' dependencies
     getRequirements(value, allSkills).forEach(function(subValue) {
-      results.push(subValue)
+      results.push(subValue);
     });
   });
-  console.log("Dependencies for", skillName, results)
   return results;
 }
 
@@ -66,7 +70,7 @@ class SubPanel extends Component {
         }
     );
 
-    console.log("New Skills", newSkills)
+    console.log('New Skills', newSkills);
 
     this.setState({
       'chosenSkills': newSkills,
