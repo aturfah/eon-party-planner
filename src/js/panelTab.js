@@ -3,11 +3,21 @@ import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 import '../css/panelTab.css';
 
+/**
+ * Header tabs to click upon.
+ */
 class PanelTab extends Component {
+  /**
+   * Changes active panel
+   */
   selectPanel() {
     this.props.change_panel(this.props.index);
   }
 
+  /**
+   * Renders this React class
+   * @return {div} Rendered app
+   */
   render() {
     const chosenClassId = this.props.chosen_class;
     const displayClassInfo = this.props.selectable_classes[chosenClassId];
