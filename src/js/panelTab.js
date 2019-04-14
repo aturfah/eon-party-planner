@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Col from 'react-bootstrap/Col';
+import PropTypes from 'prop-types';
 import '../css/panelTab.css';
 
 class PanelTab extends Component {
@@ -22,5 +23,15 @@ class PanelTab extends Component {
     </Col>;
   }
 }
+
+PanelTab.propTypes = {
+  chosen_class: PropTypes.string,
+  visible: PropTypes.bool,
+  update_method: PropTypes.func,
+  change_panel: PropTypes.func,
+  images: PropTypes.object,
+  selectable_classes: PropTypes.array,
+  index: PropTypes.number,
+};
 
 export default PanelTab;
