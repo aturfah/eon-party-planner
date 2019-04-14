@@ -4,30 +4,36 @@ import React, {Component} from 'react';
 
 class ClassDropdown extends Component {
   panelSelect(event) {
-    const parsed_event = event.split('|');
-    this.props.update_method(parsed_event[0], parseInt(parsed_event[1]));
+    const parsedEvent = event.split('|');
+    this.props.update_method(parsedEvent[0], parseInt(parsedEvent[1]));
   }
 
   render() {
-    const active_class = this.props.active_class;
-    const panel_select_func = this.panelSelect.bind(this);
-    const panel_index = this.props.panel_index;
-    const dropdown_options = [];
-    const class_data = this.props.selectable_classes;
-    Object.keys(this.props.selectable_classes).sort().forEach(function(val, index) {
-      let active_flag = false;
-      if (val === active_class) {
-        active_flag = true;
+    const activeClass = this.props.active_class;
+    const panelSelectFunc = this.panelSelect.bind(this);
+    const panelIndex = this.props.panel_index;
+    const dropdownOptions = [];
+    const classData = this.props.selectable_classes;
+    const selectableClasses = Object.keys(this.props.selectable_classes).sort()
+    selectableClasses.forEach(function(val, index) {
+      let activeFlag = false;
+      if (val === activeClass) {
+        activeFlag = true;
       }
-      const display_name = class_data[val].name;
-      const object_key = val + '|' + panel_index;
-      dropdown_options.push(
-          <Dropdown.Item key={object_key} eventKey={object_key} disabled={active_flag}>{display_name}</Dropdown.Item>
+      const displayName = classData[val].name;
+      const objectKey = val + '|' + panelIndex;
+      dropdownOptions.push(
+          <Dropdown.Item
+            key={objectKey}
+            eventKey={objectKey}
+            disabled={activeFlag}>
+            {displayName}
+          </Dropdown.Item>
       );
     });
 
-    return <DropdownButton onSelect={panel_select_func} title={this.props.selectable_classes[this.props.active_class].name}>
-      {dropdown_options}
+    return <DropdownButton onSelect={panelSelectFunc} title={this.props.selectable_classes[this.props.active_class].name}>
+      {dropdownOptions}
     </DropdownButton>;
   }
 }
