@@ -44,7 +44,15 @@ class SubPanel extends Component {
       if (chosenSkills.includes(val)) {
         activeSkill = true;
       }
-      output.push(<SkillTab key={val} active={activeSkill} updateCallback={toggleCallback} hoverCallback={hoverCallback} skillData={skillData}></SkillTab>);
+      output.push(
+          <SkillTab
+            key={val}
+            active={activeSkill}
+            updateCallback={toggleCallback}
+            hoverCallback={hoverCallback}
+            skillData={skillData}>
+          </SkillTab>
+      );
     });
     return output;
   }
