@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Col from 'react-bootstrap/Col';
+import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 
 class SideBar extends Component {
@@ -24,11 +25,20 @@ class SideBar extends Component {
   }
 
   render() {
-    const class_images = [];
-    const image_urls = this.props.images;
-    this.props.classes.forEach(function(val, index) {
-      const image_url = image_urls[val + '.png'];
-      class_images.push(<img key={index} src={image_url} alt={'Class'} width="20%" height="auto"></img>);
+    const classImages = [];
+    const imageUrls = this.props.images;
+    const classesData = this.props.classes;
+    classesData.forEach(function(val, index) {
+      const imageUrl = imageUrls[val + '.png'];
+      classImages.push(
+          <img
+            key={index}
+            src={imageUrl}
+            alt={'Class'}
+            width="20%"
+            height="auto">
+          </img>
+      );
     });
 
     return (
@@ -36,7 +46,7 @@ class SideBar extends Component {
 
         <div className="image-pane">
           <h3>Party Overview</h3>
-          {class_images}
+          {classImages}
         </div>
         <br/>
 
@@ -45,4 +55,11 @@ class SideBar extends Component {
   }
 }
 
+SideBar.propTypes = {
+  xs: PropTypes.string,
+  sm: PropTypes.string,
+  lg: PropTypes.string,
+  images: PropTypes.object,
+  classes: PropTypes.array,
+};
 export default SideBar;
