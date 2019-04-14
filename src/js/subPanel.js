@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 
 import '../css/subPanel.css';
 
+/**
+ * Panel that displays data for a class
+ */
 class SubPanel extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +20,10 @@ class SubPanel extends Component {
     };
   }
 
+  /**
+   * Updates skills on selection
+   * @param {string} skillName Name of skill
+   */
   toggleSkill(skillName) {
     console.log('NAME', skillName);
     const newSkills = this.state.chosenSkills;
@@ -29,6 +36,10 @@ class SubPanel extends Component {
     this.props.update_skills(newSkills, this.props.index);
   }
 
+  /**
+   * Toggles on skill hover
+   * @param {string} skillName Name of skill
+   */
   toggleSkillHover(skillName) {
     if (skillName === null) {
       return;
@@ -36,6 +47,13 @@ class SubPanel extends Component {
     console.log('Hovering over ' + skillName);
   }
 
+  /**
+   * Updates skills on selection
+   * @param {Array} classSkills Skills of class
+   * @param {Array} chosenSkills Skills chosen by user
+   * @param {Func} toggleCallback Callback function for toggling skill
+   * @param {Fimc} hoverCallback Callback function for hovering over skill
+   */
   buildSkillMenu(classSkills, chosenSkills, toggleCallback, hoverCallback) {
     const output = [];
     classSkills.forEach(function(val, index) {
@@ -58,6 +76,10 @@ class SubPanel extends Component {
     return output;
   }
 
+  /**
+   * Renders this React class
+   * @return {div} Rendered app
+   */
   render() {
     let className = 'SubPanel';
     if (this.props.visible === false) {
