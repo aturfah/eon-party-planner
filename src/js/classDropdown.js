@@ -1,6 +1,7 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class ClassDropdown extends Component {
   panelSelect(event) {
@@ -41,5 +42,12 @@ class ClassDropdown extends Component {
     );
   }
 }
+
+ClassDropdown.propTypes = {
+  active_class: PropTypes.string,
+  selectable_classes: PropTypes.array,
+  update_method: PropTypes.func,
+  panel_index: PropTypes.number,
+};
 
 export default ClassDropdown;
