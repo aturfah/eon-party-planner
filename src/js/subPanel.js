@@ -35,12 +35,16 @@ class SubPanel extends Component {
         console.log("Hovering over " + skillName);
     }
 
-    buildSkillMenu(classSkills, toggleCallback, hoverCallback) {
+    buildSkillMenu(classSkills, chosenSkills, toggleCallback, hoverCallback) {
         var output = []
         classSkills.forEach(function(val, index) {
             console.log(val, index);
             var skillData = skills[val];
-            output.push(<SkillTab key={val} updateCallback={toggleCallback} hoverCallback={hoverCallback} skillData={skillData}></SkillTab>)
+            var activeSkill = false;
+            if (chosenSkills.includes(val)) {
+                activeSkill = true;
+            }
+            output.push(<SkillTab key={val} active={activeSkill} updateCallback={toggleCallback} hoverCallback={hoverCallback} skillData={skillData}></SkillTab>)
         });
         return output;
     }
@@ -55,7 +59,7 @@ class SubPanel extends Component {
         var selectedClass = this.props.selectable_classes[this.props.chosen_class];
         var classSkills = selectedClass.skills;
 
-        var skillMenu = this.buildSkillMenu(classSkills, this.toggleSkill.bind(this), this.toggleSkillHover.bind(this));
+        var skillMenu = this.buildSkillMenu(classSkills, this.state.chosenSkills, this.toggleSkill.bind(this), this.toggleSkillHover.bind(this));
 
         return (
             <div className={className}>

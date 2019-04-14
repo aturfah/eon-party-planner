@@ -18,8 +18,12 @@ class SkillTab extends Component {
         let callbackFunc = this.onClickFunc.bind(this);
         let hoverFunc = this.onHoverFunc.bind(this);
         let exitFunc = this.onLeaveFunc.bind(this);
+        let formattedName = skillData.name;
+        if (this.props.active === true) {
+            formattedName = formattedName + " ACTIVE"; 
+        }
 
-        return <div onMouseEnter={hoverFunc} onMouseLeave={exitFunc} onClick={callbackFunc}>{skillData.name}</div>;
+        return <div onMouseEnter={hoverFunc} onMouseLeave={exitFunc} onClick={callbackFunc}>{formattedName}</div>;
     }
 }
 
