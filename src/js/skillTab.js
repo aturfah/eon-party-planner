@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 
 class SkillTab extends Component {
   onHoverFunc() {
-    this.props.hoverCallback(this.props.skillData['id']);
+    const skillInfo = this.props.skillData;
+    this.props.hoverCallback(skillInfo['id']);
   }
 
   onLeaveFunc() {
@@ -10,7 +11,8 @@ class SkillTab extends Component {
   }
 
   onClickFunc() {
-    this.props.updateCallback(this.props.skillData['id']);
+    const skillInfo = this.props.skillData;
+    this.props.updateCallback(skillInfo['id']);
   }
 
   render() {
@@ -23,7 +25,14 @@ class SkillTab extends Component {
       formattedName = formattedName + ' ACTIVE';
     }
 
-    return <div onMouseEnter={hoverFunc} onMouseLeave={exitFunc} onClick={callbackFunc}>{formattedName}</div>;
+    return (
+      <div
+        onMouseEnter={hoverFunc}
+        onMouseLeave={exitFunc}
+        onClick={callbackFunc}>
+        {formattedName}
+      </div>
+    );
   }
 }
 
