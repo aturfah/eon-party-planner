@@ -40,9 +40,20 @@ function getRequirements(skillName, allSkills) {
  * @return {array} Array of all skills dependant upon skillName
  */
 function getDependantUpon(skillName, allSkills) {
-  console.log(skillName);
-  console.log(allSkills);
   const results = [];
+  const allSkillNames = Object.keys(allSkills);
+  allSkillNames.forEach(function(tempSkillName) {
+    const skillData = allSkills[tempSkillName];
+    const skillReqs = skillData.requires || {};
+    if (skillReqs[skillName] || -1 > 0) {
+      results.push(skillData.id);
+
+      getDependantUpon(skillData.id, allSkills).forEach(
+        function (upstreamDep) {
+          results.push(upstreamDep);
+      });
+    }
+  });
 
   return results;
 }
