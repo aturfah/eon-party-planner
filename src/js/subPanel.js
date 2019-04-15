@@ -32,6 +32,21 @@ function getRequirements(skillName, allSkills) {
   return results;
 }
 
+
+/**
+ * Get all skills that require a certain skill
+ * @param {string} skillName Name of skill
+ * @param {object} allSkills All skill data
+ * @return {array} Array of all skills dependant upon skillName
+ */
+function getDependantUpon(skillName, allSkills) {
+  console.log(skillName);
+  console.log(allSkills);
+  const results = [];
+
+  return results;
+}
+
 /**
  * Panel that displays data for a class
  */
@@ -65,20 +80,29 @@ class SubPanel extends Component {
    */
   toggleSkill(skillName) {
     console.log('NAME', skillName);
-    const newSkills = this.state.chosenSkills;
-    // Check if skill is already active
+    let newSkills = this.state.chosenSkills;
+    // Add skill if not active
     if (!newSkills.includes(skillName)) {
       newSkills.push(skillName);
-    };
-
-    // Check if this skills' requirements are also met
-    getRequirements(skillName, this.props.all_skills).forEach(
+      // Check if this skills' requirements are also met
+      getRequirements(skillName, this.props.all_skills).forEach(
         function(requiredSkill) {
           if (!newSkills.includes(requiredSkill)) {
             newSkills.push(requiredSkill);
           }
         }
-    );
+      );
+    } else { // Remove if already active
+      const toRemove = [skillName];
+      getDependantUpon(skillName, this.props.all_skills).forEach(
+        function(dependantSkill) {
+          toRemove.push(dependantSkill);
+        }
+      )
+      newSkills = newSkills.filter(function(value, index, arr) {
+        return !toRemove.includes(value);
+      });
+    }
 
     this.setState({
       'chosenSkills': newSkills,
