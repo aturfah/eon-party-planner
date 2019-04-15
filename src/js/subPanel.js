@@ -43,6 +43,7 @@ class SubPanel extends Component {
   constructor(props) {
     super(props);
 
+    // TODO: Use the chosen skills from the App class
     this.state = {
       'chosenSkills': [],
     };
