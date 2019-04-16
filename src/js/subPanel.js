@@ -69,19 +69,12 @@ class SubPanel extends Component {
   constructor(props) {
     super(props);
 
-    // TODO: Use the chosen skills from the App class
-    this.state = {
-      'chosenSkills': props.chosen_skills,
-    };
   }
 
   /**
    * Deactivates all skills for this class.
    */
   resetSkills() {
-    this.setState({
-      'chosenSkills': [],
-    });
     this.props.update_skills([], this.props.index);
   }
 
@@ -91,7 +84,7 @@ class SubPanel extends Component {
    */
   toggleSkill(skillName) {
     console.log('NAME', skillName);
-    let newSkills = this.state.chosenSkills;
+    let newSkills = this.props.chosen_skills;
     // Add skill if not active
     if (!newSkills.includes(skillName)) {
       newSkills.push(skillName);
@@ -115,9 +108,6 @@ class SubPanel extends Component {
       });
     }
 
-    this.setState({
-      'chosenSkills': newSkills,
-    });
     this.props.update_skills(newSkills, this.props.index);
   }
 
@@ -178,7 +168,7 @@ class SubPanel extends Component {
     const classSkills = selectedClass.skills;
 
     const skillMenu = this.buildSkillMenu(classSkills,
-        this.state.chosenSkills,
+        this.props.chosen_skills,
         this.toggleSkill.bind(this),
         this.toggleSkillHover.bind(this));
 
@@ -215,5 +205,6 @@ SubPanel.propTypes = {
   chosen_class: PropTypes.string,
   update_method: PropTypes.func,
   all_skills: PropTypes.object,
+  chosen_skills: PropTypes.array,
 };
 export default SubPanel;
