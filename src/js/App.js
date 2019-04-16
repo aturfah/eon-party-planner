@@ -103,6 +103,7 @@ class App extends Component {
               active_panel={this.state.active_panel}
               selectable_classes={classes}
               skills_data={skills}
+              chosen_skills={this.state.skills}
               update_skills={this.updateSkills.bind(this)}
               classes={this.state.classes}
               change_panel={this.changePanel.bind(this)}

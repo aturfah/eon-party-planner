@@ -71,7 +71,7 @@ class SubPanel extends Component {
 
     // TODO: Use the chosen skills from the App class
     this.state = {
-      'chosenSkills': [],
+      'chosenSkills': props.chosen_skills,
     };
   }
 

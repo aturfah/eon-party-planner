@@ -22,17 +22,19 @@ class MainPanel extends Component {
     const selectableClasses = this.props.selectable_classes;
     const allClasses = this.props.classes;
     const allSkills = this.props.skills_data;
+    const chosenSkills = this.props.chosen_skills;
     const subPanels = [];
     const panelTabs = [];
     allClasses.forEach(function(val, index) {
       let isActivePanel = false;
+      const classSkills = chosenSkills[index];
       if (activePanel === index) {
         isActivePanel = true;
-      }
-      subPanels.push(
+        subPanels.push(
         <SubPanel
           key={index}
           chosen_class={val}
+          chosen_skills={classSkills}
           all_skills={allSkills}
           images={images}
           visible={isActivePanel}
@@ -42,6 +44,7 @@ class MainPanel extends Component {
           update_skills={updateSkills}>
         </SubPanel>
       );
+      }
       panelTabs.push(
           <PanelTab
             key={index}
@@ -72,6 +75,7 @@ MainPanel.propTypes = {
   selectable_classes: PropTypes.object,
   classes: PropTypes.array,
   skills_data: PropTypes.object,
+  chosen_skills: PropTypes.array,
 };
 
 
