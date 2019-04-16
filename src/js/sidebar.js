@@ -29,6 +29,9 @@ class SideBar extends Component {
     } else {
       this.lg = this.props.lg;
     }
+
+    console.log(this.props.skill_data);
+    console.log(this.props.chosen_skills);
   }
 
   /**
@@ -72,5 +75,7 @@ SideBar.propTypes = {
   lg: PropTypes.string,
   images: PropTypes.object,
   classes: PropTypes.array,
+  skill_data: PropTypes.object,
+  chosen_skills: PropTypes.array,
 };
 export default SideBar;

@@ -95,7 +95,9 @@ class App extends Component {
           <Row className="BodyRow h-100">
             <SideBar xs="4"
               classes={this.state.classes}
-              images={this.images}>
+              images={this.images}
+              skill_data={skills}
+              chosen_skills={this.state.skills}>
             </SideBar>
 
             <MainPanel xs="8"
