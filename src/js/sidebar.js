@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import PropTypes from 'prop-types';
+import SkillDataTable from './skillDataTable'
 import '../css/sidebar.css';
 
 /**
@@ -64,9 +65,11 @@ class SideBar extends Component {
           <h3>Party Overview</h3>
           {classImages}
         </Row>
-        <Row>
-          This is where tables go...
-        </Row>
+        <SkillDataTable
+          chosen_skills={this.props.chosen_skills}
+          skill_data={this.props.skill_data}
+        >
+        </SkillDataTable>
 
       </Col>
     );
