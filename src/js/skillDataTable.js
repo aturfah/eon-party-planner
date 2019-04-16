@@ -5,18 +5,18 @@ import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 
 function createTabs(headers, tabCallback) {
-  const results = []
+  const results = [];
   headers.forEach(function(header, index) {
     const headerTab = (
-    <Col key={index} className="sidebar-tab-label"
-      onClick={() => tabCallback(index)}>
+      <Col key={index} className="sidebar-tab-label"
+        onClick={() => tabCallback(index)}>
         {header}
       </Col>
     );
     results.push(headerTab);
   });
 
-  return results
+  return results;
 }
 
 class SkillDataTable extends Component {
@@ -27,8 +27,8 @@ class SkillDataTable extends Component {
       'Damage Mitigation', 'Healing',
       'Lockdown'];
     this.state = {
-      activePanel: 0
-    }
+      activePanel: 0,
+    };
   }
 
   changeTab(index) {
@@ -42,12 +42,12 @@ class SkillDataTable extends Component {
 
     return (
       <div>
-      <Row>{tabs}</Row>
-      <Row>
+        <Row>{tabs}</Row>
+        <Row>
         This is where tables go...
-      </Row>
+        </Row>
       </div>
-    )
+    );
   }
 }
 

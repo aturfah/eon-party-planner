@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import PropTypes from 'prop-types';
-import SkillDataTable from './skillDataTable'
+import SkillDataTable from './skillDataTable';
 import '../css/sidebar.css';
 
 /**
