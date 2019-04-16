@@ -63,15 +63,6 @@ function getDependantUpon(skillName, allSkills) {
  */
 class SubPanel extends Component {
   /**
-   * Initializes Panel
-   * @param {Object} props Properties of object
-   */
-  constructor(props) {
-    super(props);
-
-  }
-
-  /**
    * Deactivates all skills for this class.
    */
   resetSkills() {
