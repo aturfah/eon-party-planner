@@ -29,6 +29,10 @@ function createTabs(headers, clickCallback) {
  * Table that renders with relevant skill data
  */
 class SkillDataTable extends Component {
+  /**
+   * Initializes SkillDataTable
+   * @param {Object} props Properties of object
+   */
   constructor(props) {
     super(props);
 
