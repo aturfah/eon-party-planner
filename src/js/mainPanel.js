@@ -31,19 +31,19 @@ class MainPanel extends Component {
       if (activePanel === index) {
         isActivePanel = true;
         subPanels.push(
-        <SubPanel
-          key={index}
-          chosen_class={val}
-          chosen_skills={classSkills}
-          all_skills={allSkills}
-          images={images}
-          visible={isActivePanel}
-          selectable_classes={selectableClasses}
-          index={index}
-          update_method={updateMethod}
-          update_skills={updateSkills}>
-        </SubPanel>
-      );
+            <SubPanel
+              key={index}
+              chosen_class={val}
+              chosen_skills={classSkills}
+              all_skills={allSkills}
+              images={images}
+              visible={isActivePanel}
+              selectable_classes={selectableClasses}
+              index={index}
+              update_method={updateMethod}
+              update_skills={updateSkills}>
+            </SubPanel>
+        );
       }
       panelTabs.push(
           <PanelTab

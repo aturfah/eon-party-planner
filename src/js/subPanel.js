@@ -49,9 +49,9 @@ function getDependantUpon(skillName, allSkills) {
       results.push(skillData.id);
 
       getDependantUpon(skillData.id, allSkills).forEach(
-        function (upstreamDep) {
-          results.push(upstreamDep);
-      });
+          function(upstreamDep) {
+            results.push(upstreamDep);
+          });
     }
   });
 
@@ -81,19 +81,19 @@ class SubPanel extends Component {
       newSkills.push(skillName);
       // Check if this skills' requirements are also met
       getRequirements(skillName, this.props.all_skills).forEach(
-        function(requiredSkill) {
-          if (!newSkills.includes(requiredSkill)) {
-            newSkills.push(requiredSkill);
+          function(requiredSkill) {
+            if (!newSkills.includes(requiredSkill)) {
+              newSkills.push(requiredSkill);
+            }
           }
-        }
       );
     } else { // Remove if already active
       const toRemove = [skillName];
       getDependantUpon(skillName, this.props.all_skills).forEach(
-        function(dependantSkill) {
-          toRemove.push(dependantSkill);
-        }
-      )
+          function(dependantSkill) {
+            toRemove.push(dependantSkill);
+          }
+      );
       newSkills = newSkills.filter(function(value, index, arr) {
         return !toRemove.includes(value);
       });
