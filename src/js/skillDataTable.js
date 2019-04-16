@@ -4,12 +4,18 @@ import Row from 'react-bootstrap/Row';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 
-function createTabs(headers, tabCallback) {
+/**
+ * Creates headers for tabs
+ * @param {Array} headers Panel titles
+ * @param {Func} clickCallback Callback function on click
+ * @return {Array} Array of panel headers
+ */
+function createTabs(headers, clickCallback) {
   const results = [];
   headers.forEach(function(header, index) {
     const headerTab = (
       <Col key={index} className="sidebar-tab-label"
-        onClick={() => tabCallback(index)}>
+        onClick={() => clickCallback(index)}>
         {header}
       </Col>
     );
@@ -19,6 +25,9 @@ function createTabs(headers, tabCallback) {
   return results;
 }
 
+/**
+ * Table that renders with relevant skill data
+ */
 class SkillDataTable extends Component {
   constructor(props) {
     super(props);
@@ -31,12 +40,20 @@ class SkillDataTable extends Component {
     };
   }
 
+  /**
+   * Sets the tab to be displayed
+   * @param {Int} index Index in headers of panel
+   */
   changeTab(index) {
     const newState = this.state;
     newState.activePanel = index;
     this.setState(newState);
   }
 
+  /**
+   * Renders this React class
+   * @return {div} Rendered app
+   */
   render() {
     const tabs = createTabs(this.headers, this.changeTab.bind(this));
 
