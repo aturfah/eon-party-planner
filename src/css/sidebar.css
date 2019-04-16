@@ -10,4 +10,11 @@
     display: inline-block;
     width: 95%;
     padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.sidebar-tab-label {
+  line-height: 1;
+  font-size: 20px;
+  text-align: center;
 }

@@ -2,15 +2,13 @@ import React, {Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import PropTypes from 'prop-types';
+import '../css/sidebar.css';
 
-function createTabs(tabCallback) {
+function createTabs(headers, tabCallback) {
   const results = []
-  const headers = ['Damage', 'DPS Support',
-                   'Damage Mitigation', 'Healing',
-                   'Lockdown'];
   headers.forEach(function(header, index) {
     const headerTab = (
-    <Col key={index}
+    <Col key={index} className="sidebar-tab-label"
       onClick={() => tabCallback(index)}>
         {header}
       </Col>
@@ -25,7 +23,9 @@ class SkillDataTable extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
+    this.headers = ['Damage', 'DPS Support',
+      'Damage Mitigation', 'Healing',
+      'Lockdown'];
     this.state = {
       activePanel: 0
     }
@@ -38,7 +38,7 @@ class SkillDataTable extends Component {
   }
 
   render() {
-    const tabs = createTabs(this.changeTab.bind(this));
+    const tabs = createTabs(this.headers, this.changeTab.bind(this));
 
     return (
       <div>
