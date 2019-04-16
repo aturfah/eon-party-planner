@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 
@@ -50,7 +51,8 @@ class SideBar extends Component {
             src={imageUrl}
             alt={'Class'}
             width="20%"
-            height="auto">
+            height="auto"
+            max-height="100%">
           </img>
       );
     });
@@ -58,11 +60,13 @@ class SideBar extends Component {
     return (
       <Col xs={this.xs} sm={this.sm} className="SideBar">
 
-        <div className="image-pane">
+        <Row className="image-pane">
           <h3>Party Overview</h3>
           {classImages}
-        </div>
-        <br/>
+        </Row>
+        <Row>
+          This is where tables go...
+        </Row>
 
       </Col>
     );
