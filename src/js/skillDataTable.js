@@ -134,15 +134,15 @@ function generateDamageProperties() {
 
 function mergeObject(baseObj, newObj) {
   Object.keys(baseObj).forEach(function(keyName) {
-    if (typeof baseObj[keyName] === "number") {
+    if (typeof baseObj[keyName] === 'number') {
       baseObj[keyName] += newObj[keyName];
     } else if (Array.isArray(baseObj[keyName])) {
-      newObj[keyName].forEach(function (value) {
+      newObj[keyName].forEach(function(value) {
         if (!baseObj[keyName].includes(value)) {
           baseObj[keyName].push(value);
         }
       });
-    } else if (typeof baseObj[keyName] === "object") {
+    } else if (typeof baseObj[keyName] === 'object') {
       baseObj[keyName] = mergeObject(baseObj[keyName], newObj[keyName]);
     }
   });
@@ -170,7 +170,7 @@ function createDamagePanel(chosenSkills, skillData) {
 
   chosenSkills.forEach(function(characterSkills, index) {
     console.log('Party member', index);
-    const contributions = []
+    const contributions = [];
     characterSkills.forEach(function(chosenSkill) {
       const skillDatum = skillData[chosenSkill];
       const skillDamage = skillDatum['damage_type'] || [];
@@ -180,9 +180,7 @@ function createDamagePanel(chosenSkills, skillData) {
         console.log('No Damage done by skill', chosenSkill);
         return;
       }
-      console.log(skillDatum)
-      console.log('Normal', skillDamage);
-      console.log('Conditional', skillCond);
+
       // Build out that player's damageProperties
       skillDamage.forEach(function(dmgDatum) {
         const firstLayer = 'unconditional';
@@ -191,11 +189,10 @@ function createDamagePanel(chosenSkills, skillData) {
         const fourthLayer = dmgDatum.range;
 
         if (secondLayer === 'physical') {
-          console.log(dmgDatum);
           console.log(firstLayer, secondLayer, thirdLayer, fourthLayer);
           // Account for new party member contributing this type of damage
           const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
-          if(!contributions.includes(dmgTypeKey)){
+          if (!contributions.includes(dmgTypeKey)) {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].numSources += 1;
             contributions.push(dmgTypeKey);
           }
@@ -209,7 +206,6 @@ function createDamagePanel(chosenSkills, skillData) {
           }
 
           // Composite damage
-          console.log(dmgDatum.element, dmgDatum.id);
           if ((dmgDatum.element || '') !== '') {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].composite += 1;
             // account for in elemental damage
@@ -217,7 +213,7 @@ function createDamagePanel(chosenSkills, skillData) {
         } else {
           // FILL ME IN LATER WITH LOGIC FOR ELEMENTAL DAMAGE
         }
-      })
+      });
     });
   });
 
@@ -269,7 +265,6 @@ class SkillDataTable extends Component {
     const switchCondition = this.headers[this.state.activePanel];
     switch (switchCondition) {
       case 'Damage':
-        console.log(switchCondition);
         output = createDamagePanel(this.props.chosen_skills,
             this.props.skill_data);
         break;
