@@ -6,6 +6,58 @@ import '../css/sidebar.css';
 
 
 function createDamagePanel(chosenSkills, skillData) {
+  let skillObject = {
+    'melee': {
+      'normal': {
+        'totalSkills': 0,
+        'totalMembers': 0,
+        'composite': 0,
+      },
+      'conditional': {
+        'totalSkills': 0,
+        'totalMembers': 0,
+        'composite': 0,
+      }
+    },
+    'ranged': {
+      'normal': {
+        'totalSkills': 0,
+        'totalMembers': 0,
+        'composite': 0,
+      },
+      'conditional': {
+        'totalSkills': 0,
+        'totalMembers': 0,
+        'composite': 0,
+      }
+    },
+    'elemental': {
+      'normal': {
+        'totalSkills': 0,
+        'totalMembers': 0,
+      },
+      'conditional': {
+        'totalSkills': 0,
+        'totalMembers': 0,
+      }
+    }
+  };
+
+  chosenSkills.forEach(function(characterSkills) {
+    characterSkills.forEach(function(chosenSkill) {
+      const skillDatum = skillData[chosenSkill];
+      const skillDamage = skillDatum['damage_type'] || [];
+      const skillCond = (skillDatum.conditonal || {})['damage_type'] || [];
+
+      if (!skillDamage.length && !skillCond.length) {
+        console.log('No Damage done by skill', chosenSkill);
+        return;
+      }
+      console.log(skillDamage);
+      console.log(skillCond);
+    });
+  });
+
   return []
 }
 
