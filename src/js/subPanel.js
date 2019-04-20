@@ -124,7 +124,7 @@ class SubPanel extends Component {
   buildSkillMenu(classSkills, chosenSkills, toggleCallback, hoverCallback) {
     const output = [];
     classSkills.forEach(function(val, index) {
-      console.log(val, index);
+      // console.log(val, index);
       const skillData = skills[val];
       let activeSkill = false;
       if (chosenSkills.includes(val)) {
