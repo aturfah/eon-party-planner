@@ -5,12 +5,8 @@ import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 
 
-function createDamagePanel(chosenSkills, skillData) {
-  /*
-    Physical -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Ranged/Melee (Single-element/Composite)
-    Elemental -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Fire/Ice/Elec
-   */
-  const damageProperties = {
+function generateDamageProperties() {
+  return {
     conditonal: {
       physical: {
         single: {
@@ -118,9 +114,16 @@ function createDamagePanel(chosenSkills, skillData) {
       elemental: {},
     },
   };
+}
+
+function createDamagePanel(chosenSkills, skillData) {
+  /*
+    Physical -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Ranged/Melee (Single-element/Composite)
+    Elemental -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Fire/Ice/Elec
+   */
   const dmgPropArray = [];
   [1, 2, 3, 4, 5].forEach(() => {
-    dmgPropArray.push(damageProperties);
+    dmgPropArray.push(generateDamageProperties());
   });
 
   chosenSkills.forEach(function(characterSkills, index) {
