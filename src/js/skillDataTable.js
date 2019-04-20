@@ -212,9 +212,10 @@ function createDamagePanel(chosenSkills, skillData) {
           console.log(dmgDatum.element, dmgDatum.id);
           if ((dmgDatum.element || '') !== '') {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].composite += 1;
+            // account for in elemental damage
           }
         } else {
-          // FILL ME IN LATER
+          // FILL ME IN LATER WITH LOGIC FOR ELEMENTAL DAMAGE
         }
       })
     });
