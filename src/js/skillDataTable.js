@@ -10,9 +10,11 @@ function createDamagePanel(chosenSkills, skillData) {
     Physical -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Ranged/Melee (Single-element/Composite)
     Elemental -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Fire/Ice/Elec
    */
-  let damageProperties = {};
-  let dmgPropArray = [];
-  [1,2,3,4,5].forEach(() => {dmgPropArray.push(damageProperties);});
+  const damageProperties = {};
+  const dmgPropArray = [];
+  [1, 2, 3, 4, 5].forEach(() => {
+    dmgPropArray.push(damageProperties);
+  });
 
   chosenSkills.forEach(function(characterSkills, index) {
     characterSkills.forEach(function(chosenSkill) {
@@ -24,7 +26,7 @@ function createDamagePanel(chosenSkills, skillData) {
         console.log('No Damage done by skill', chosenSkill);
         return;
       }
-      console.log("Party member", index);
+      console.log('Party member', index);
       console.log(skillDamage);
       console.log(skillCond);
 
@@ -34,7 +36,7 @@ function createDamagePanel(chosenSkills, skillData) {
 
   console.log(dmgPropArray);
 
-  return []
+  return [];
 }
 
 /**
@@ -64,7 +66,7 @@ class SkillDataTable extends Component {
     if (index === this.state.activePanel) {
       return;
     }
-    console.log("Changing to tab", index);
+    console.log('Changing to tab', index);
     const newState = this.state;
     newState.activePanel = index;
     this.setState(newState);
@@ -81,7 +83,7 @@ class SkillDataTable extends Component {
       case 'Damage':
         console.log(switchCondition);
         output = createDamagePanel(this.props.chosen_skills,
-                                   this.props.skill_data)
+            this.props.skill_data);
         break;
       case 'DPS Support':
         console.log(switchCondition);
@@ -99,7 +101,7 @@ class SkillDataTable extends Component {
         throw Error;
     }
 
-    return output
+    return output;
   }
 
   /**
@@ -130,14 +132,14 @@ class SkillDataTable extends Component {
    */
   render() {
     const tabs = this.createTabs();
-    const displayPanel = this.createPanel()
+    const displayPanel = this.createPanel();
 
     return (
       <div>
         <Row>{tabs}</Row>
         <Row>
         This is where tables go...
-        {displayPanel}
+          {displayPanel}
         </Row>
       </div>
     );
