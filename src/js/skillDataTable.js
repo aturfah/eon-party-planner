@@ -12,104 +12,110 @@ function createDamagePanel(chosenSkills, skillData) {
    */
   const damageProperties = {
     conditonal: {
-      single: {
-        ranged: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
+      physical: {
+        single: {
+          ranged: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+          melee: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
         },
-        melee: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
+        row: {
+          ranged: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+          melee: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+        },
+        pierce: {
+          ranged: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+          melee: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+        },
+        aoe: {
+          ranged: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+          melee: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
         },
       },
-      row: {
-        ranged: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-        melee: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-      },
-      pierce: {
-        ranged: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-        melee: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-      },
-      aoe: {
-        ranged: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-        melee: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-      },
+      elemental: {},
     },
     unconditional: {
-      single: {
-        ranged: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
+      physical: {
+        single: {
+          ranged: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+          melee: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
         },
-        melee: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
+        row: {
+          ranged: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+          melee: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+        },
+        pierce: {
+          ranged: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+          melee: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+        },
+        aoe: {
+          ranged: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
+          melee: {
+            composite: 0,
+            count: 0,
+            num_types: 0,
+          },
         },
       },
-      row: {
-        ranged: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-        melee: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-      },
-      pierce: {
-        ranged: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-        melee: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-      },
-      aoe: {
-        ranged: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-        melee: {
-          composite: 0,
-          count: 0,
-          num_types: 0,
-        },
-      },
+      elemental: {},
     },
   };
   const dmgPropArray = [];
@@ -118,18 +124,19 @@ function createDamagePanel(chosenSkills, skillData) {
   });
 
   chosenSkills.forEach(function(characterSkills, index) {
+    console.log('Party member', index);
     characterSkills.forEach(function(chosenSkill) {
       const skillDatum = skillData[chosenSkill];
       const skillDamage = skillDatum['damage_type'] || [];
-      const skillCond = (skillDatum.conditonal || {})['damage_type'] || [];
+      const skillCond = (skillDatum.conditional || {})['damage_type'] || [];
 
       if (!skillDamage.length && !skillCond.length) {
         console.log('No Damage done by skill', chosenSkill);
         return;
       }
-      console.log('Party member', index);
-      console.log(skillDamage);
-      console.log(skillCond);
+      console.log(skillDatum)
+      console.log('Normal', skillDamage);
+      console.log('Conditional', skillCond);
 
       // Build out that player's damageProperties
     });
