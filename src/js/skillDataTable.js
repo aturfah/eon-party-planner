@@ -158,6 +158,12 @@ function mergeDamageProperties(dmgPropArray) {
   return allDamageProperties;
 }
 
+function generateDmgPanelHTML(allDamageProps) {
+  console.log(allDamageProps);
+
+  return <div></div>
+}
+
 function createDamagePanel(chosenSkills, skillData) {
   /*
     Physical -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Ranged/Melee (Single-element/Composite)
@@ -177,7 +183,7 @@ function createDamagePanel(chosenSkills, skillData) {
       const skillCond = (skillDatum.conditional || {})['damage_type'] || [];
 
       if (!skillDamage.length && !skillCond.length) {
-        console.log('No Damage done by skill', chosenSkill);
+        console.log('No Damage done by skill, skipping', chosenSkill);
         return;
       }
 
@@ -218,9 +224,7 @@ function createDamagePanel(chosenSkills, skillData) {
   });
 
   const allDamageProps = mergeDamageProperties(dmgPropArray);
-  console.log(allDamageProps);
-
-  return [];
+  return generateDmgPanelHTML(allDamageProps);
 }
 
 /**
