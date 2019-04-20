@@ -10,7 +10,108 @@ function createDamagePanel(chosenSkills, skillData) {
     Physical -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Ranged/Melee (Single-element/Composite)
     Elemental -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Fire/Ice/Elec
    */
-  const damageProperties = {};
+  const damageProperties = {
+    conditonal: {
+      single: {
+        ranged: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+        melee: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+      },
+      row: {
+        ranged: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+        melee: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+      },
+      pierce: {
+        ranged: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+        melee: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+      },
+      aoe: {
+        ranged: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+        melee: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+      },
+    },
+    unconditional: {
+      single: {
+        ranged: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+        melee: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+      },
+      row: {
+        ranged: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+        melee: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+      },
+      pierce: {
+        ranged: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+        melee: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+      },
+      aoe: {
+        ranged: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+        melee: {
+          composite: 0,
+          count: 0,
+          num_types: 0,
+        },
+      },
+    },
+  };
   const dmgPropArray = [];
   [1, 2, 3, 4, 5].forEach(() => {
     dmgPropArray.push(damageProperties);
