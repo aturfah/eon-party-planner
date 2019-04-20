@@ -115,7 +115,7 @@ var skills = {
     "damage_type": [{
       "category": "physical",
       "target": "single",
-      "range": "melee",
+      "range": "ranged",
       "type": "cut",
     }]
   },
