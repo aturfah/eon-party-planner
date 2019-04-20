@@ -6,44 +6,15 @@ import '../css/sidebar.css';
 
 
 function createDamagePanel(chosenSkills, skillData) {
-  let skillObject = {
-    'melee': {
-      'normal': {
-        'totalSkills': 0,
-        'totalMembers': 0,
-        'composite': 0,
-      },
-      'conditional': {
-        'totalSkills': 0,
-        'totalMembers': 0,
-        'composite': 0,
-      }
-    },
-    'ranged': {
-      'normal': {
-        'totalSkills': 0,
-        'totalMembers': 0,
-        'composite': 0,
-      },
-      'conditional': {
-        'totalSkills': 0,
-        'totalMembers': 0,
-        'composite': 0,
-      }
-    },
-    'elemental': {
-      'normal': {
-        'totalSkills': 0,
-        'totalMembers': 0,
-      },
-      'conditional': {
-        'totalSkills': 0,
-        'totalMembers': 0,
-      }
-    }
-  };
+  /*
+    Physical -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Ranged/Melee (Single-element/Composite)
+    Elemental -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Fire/Ice/Elec
+   */
+  let damageProperties = {};
+  let dmgPropArray = [];
+  [1,2,3,4,5].forEach(() => {dmgPropArray.push(damageProperties);});
 
-  chosenSkills.forEach(function(characterSkills) {
+  chosenSkills.forEach(function(characterSkills, index) {
     characterSkills.forEach(function(chosenSkill) {
       const skillDatum = skillData[chosenSkill];
       const skillDamage = skillDatum['damage_type'] || [];
@@ -53,10 +24,15 @@ function createDamagePanel(chosenSkills, skillData) {
         console.log('No Damage done by skill', chosenSkill);
         return;
       }
+      console.log("Party member", index);
       console.log(skillDamage);
       console.log(skillCond);
+
+      // Build out that player's damageProperties
     });
   });
+
+  console.log(dmgPropArray);
 
   return []
 }
