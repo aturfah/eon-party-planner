@@ -13,48 +13,56 @@ function generateDamageProperties() {
           ranged: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
           melee: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
         },
         row: {
           ranged: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
           melee: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
         },
         pierce: {
           ranged: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
           melee: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
         },
         aoe: {
           ranged: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
           melee: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
         },
       },
@@ -66,48 +74,56 @@ function generateDamageProperties() {
           ranged: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
           melee: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
         },
         row: {
           ranged: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
           melee: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
         },
         pierce: {
           ranged: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
           melee: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
         },
         aoe: {
           ranged: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
           melee: {
             composite: 0,
             count: 0,
-            num_types: 0,
+            numSources: 0,
+            types: [],
           },
         },
       },
@@ -128,6 +144,7 @@ function createDamagePanel(chosenSkills, skillData) {
 
   chosenSkills.forEach(function(characterSkills, index) {
     console.log('Party member', index);
+    const contributions = []
     characterSkills.forEach(function(chosenSkill) {
       const skillDatum = skillData[chosenSkill];
       const skillDamage = skillDatum['damage_type'] || [];
@@ -140,8 +157,31 @@ function createDamagePanel(chosenSkills, skillData) {
       console.log(skillDatum)
       console.log('Normal', skillDamage);
       console.log('Conditional', skillCond);
-
       // Build out that player's damageProperties
+      skillDamage.forEach(function(dmgDatum) {
+        const firstLayer = 'unconditional';
+        const secondLayer = dmgDatum.category;
+        const thirdLayer = dmgDatum.target;
+        const fourthLayer = dmgDatum.range;
+
+        if (secondLayer === 'physical') {
+          console.log(dmgDatum);
+          console.log(firstLayer, secondLayer, thirdLayer, fourthLayer);
+          // Account for new party member contributing this type of damage
+          const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
+          if(!contributions.includes(dmgTypeKey)){
+            dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].count += 1;
+            contributions.push(dmgTypeKey);
+          }
+
+          // Account for another skill of this damge type
+          
+
+        } else {
+          // FILL ME IN LATER
+        }
+
+      })
     });
   });
 
