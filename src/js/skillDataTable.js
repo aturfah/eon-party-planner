@@ -207,6 +207,12 @@ function createDamagePanel(chosenSkills, skillData) {
           if (!dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].types.includes(dmgDatum.type)) {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].types.push(dmgDatum.type);
           }
+
+          // Composite damage
+          console.log(dmgDatum.element, dmgDatum.id);
+          if ((dmgDatum.element || '') !== '') {
+            dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].composite += 1;
+          }
         } else {
           // FILL ME IN LATER
         }
