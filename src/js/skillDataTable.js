@@ -4,6 +4,11 @@ import Row from 'react-bootstrap/Row';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 
+
+function createDamagePanel(chosenSkills, skillData) {
+  return []
+}
+
 /**
  * Table that renders with relevant skill data
  */
@@ -37,6 +42,37 @@ class SkillDataTable extends Component {
     this.setState(newState);
   }
 
+  /**
+   * Renders table based on active panel
+   */
+  createPanel() {
+    console.log(this.props.chosen_skills);
+    let output = null;
+    const switchCondition = this.headers[this.state.activePanel];
+    switch (switchCondition) {
+      case 'Damage':
+        console.log(switchCondition);
+        output = createDamagePanel(this.props.chosen_skills,
+                                   this.props.skill_data)
+        break;
+      case 'DPS Support':
+        console.log(switchCondition);
+        break;
+      case 'Damage Mitigation':
+        console.log(switchCondition);
+        break;
+      case 'Healing':
+        console.log(switchCondition);
+        break;
+      case 'Lockdown':
+        console.log(switchCondition);
+        break;
+      default:
+        throw Error;
+    }
+
+    return output
+  }
 
   /**
    * Creates headers for tabs
@@ -66,12 +102,14 @@ class SkillDataTable extends Component {
    */
   render() {
     const tabs = this.createTabs();
+    const displayPanel = this.createPanel()
 
     return (
       <div>
         <Row>{tabs}</Row>
         <Row>
         This is where tables go...
+        {displayPanel}
         </Row>
       </div>
     );
