@@ -170,17 +170,20 @@ function createDamagePanel(chosenSkills, skillData) {
           // Account for new party member contributing this type of damage
           const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
           if(!contributions.includes(dmgTypeKey)){
-            dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].count += 1;
+            dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].numSources += 1;
             contributions.push(dmgTypeKey);
           }
 
           // Account for another skill of this damge type
-          
+          dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].count += 1;
 
+          // Specific damage type (Cut, Bash, Stab)
+          if (!dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].types.includes(dmgDatum.type)) {
+            dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].types.push(dmgDatum.type);
+          }
         } else {
           // FILL ME IN LATER
         }
-
       })
     });
   });
