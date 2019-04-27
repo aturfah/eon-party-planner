@@ -257,7 +257,37 @@ function generatePhysicalDmgPanelHTML(physicalDmgProps) {
 
 function generateElementalDmgPanelHTML(elementalDmgProps) {
   console.log(elementalDmgProps);
-  return <Table>Hi</Table>
+  const rows = []
+
+
+  Object.keys(elementalDmgProps).forEach(function(skillElement) {
+    const skillRangeData = elementalDmgProps[skillElement];
+    Object.keys(skillRangeData).forEach(function (skillRange) {
+      const skillData = skillRangeData[skillRange];
+      const skillColumns = [];
+      skillColumns.push(<td>{skillElement}</td>);
+      skillColumns.push(<td>{skillRange}</td>);
+      skillColumns.push(<td>idk</td>);
+      skillColumns.push(<td>{skillData.count}</td>);
+      skillColumns.push(<td>{skillData.numSources}</td>);
+      rows.push(<tr>{skillColumns}</tr>);
+    });
+  });
+
+  return (<Table className='dmg-table' responsive="xl" size="sm">
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Target</th>
+      <th>Conditional</th>
+      <th>Total Num. Skills</th>
+      <th>Num. Party Members</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows}
+  </tbody>
+</Table>)
 }
 
 function createDamagePanel(chosenSkills, skillData) {
