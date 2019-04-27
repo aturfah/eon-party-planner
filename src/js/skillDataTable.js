@@ -357,7 +357,7 @@ class SkillDataTable extends Component {
       const headerTab = (
         <Col key={index} className="sidebar-tab-label"
           onClick={() => clickCallback(index)}>
-          {header}
+          <h5>{header}</h5>
         </Col>
       );
       results.push(headerTab);
