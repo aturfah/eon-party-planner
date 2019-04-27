@@ -29,7 +29,7 @@ class PanelTab extends Component {
     }
 
     return <Col className={classes} onClick={this.selectPanel.bind(this)}>
-      <h5>{displayClassInfo.name}</h5>
+      <h6>{displayClassInfo.name}</h6>
     </Col>;
   }
 }
