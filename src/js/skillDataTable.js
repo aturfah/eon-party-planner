@@ -203,11 +203,9 @@ function mergeDamageProperties(dmgPropArray) {
   return allDamageProperties;
 }
 
-function generateDmgPanelHTML(allDamageProps) {
+function generatePhysicalDmgPanelHTML(physicalDmgProps) {
   const rows = [];
 
-  // Physical Damage
-  const physicalDmgProps = allDamageProps.physical;
   // console.log(physicalDmgProps);
   Object.keys(physicalDmgProps).forEach(function(skillTarget) {
     // console.log(skillTarget);
@@ -338,7 +336,8 @@ function createDamagePanel(chosenSkills, skillData) {
 
   const allDamageProps = mergeDamageProperties(dmgPropArray);
   console.log(allDamageProps);
-  return generateDmgPanelHTML(allDamageProps);
+  const physDmgPanel = generatePhysicalDmgPanelHTML(allDamageProps.physical);
+  return physDmgPanel;
 }
 
 function elementalDamageKey(element, target, conditional) {
