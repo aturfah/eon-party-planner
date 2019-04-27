@@ -317,10 +317,6 @@ function createDamagePanel(chosenSkills, skillData) {
           const secondLayer = dmgDatum.element;
           const thirdLayer = dmgDatum.target;
 
-
-          console.log("---");
-          console.log(dmgDatum);
-          console.log(firstLayer, secondLayer, thirdLayer, fourthLayer);
           const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
           // Account for new type of damage
           if (!elementalContributions.includes(dmgTypeKey)) {
@@ -330,7 +326,6 @@ function createDamagePanel(chosenSkills, skillData) {
 
           // Account for another skill of this damge type
           dmgPropArray[index][firstLayer][secondLayer][thirdLayer].count += 1;
-
         }
       });
     });
