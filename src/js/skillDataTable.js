@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Table from 'react-bootstrap/Table';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 
@@ -160,14 +161,45 @@ function mergeDamageProperties(dmgPropArray) {
 }
 
 function generateDmgPanelHTML(allDamageProps) {
-  console.log(allDamageProps);
   const rows = [];
 
   // Physical Damage
+  const physicalDmgProps = allDamageProps.physical;
+  console.log(physicalDmgProps);
+  Object.keys(physicalDmgProps).forEach(function(skillTarget) {
+    console.log(skillTarget);
+    const skillTargetData = physicalDmgProps[skillTarget];
+    Object.keys(skillTargetData).forEach(function(skillRange) {
+      const skillRangeData = skillTargetData[skillRange];
+      console.log('--', skillTarget, skillRange);
+      const newRow = <tr></tr>;
+      Object.keys(skillRangeData).forEach(function(skillCondition) {
+        console.log('-- --', skillTarget, skillRange, skillCondition);
+        const skillConditonCounts = skillRangeData[skillCondition];
+        console.log(skillConditonCounts);
+      })
+    });
+  });
 
-  
-
-  return <div></div>
+  return (<div>
+    <Table responsive="xl" size="sm">
+      <thead>
+        <tr>
+          <th>col1</th>
+          <th>col2</th>
+          <th>col3</th>
+          <th>col4</th>
+          <th>col5</th>
+          <th>col6</th>
+          <th>col7</th>
+          <th>col8</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows}
+      </tbody>
+    </Table>
+    </div>)
 }
 
 function createDamagePanel(chosenSkills, skillData) {
@@ -331,10 +363,10 @@ class SkillDataTable extends Component {
     return (
       <div>
         <Row>{tabs}</Row>
-        <Row>
+        <div>
         This is where tables go...
           {displayPanel}
-        </Row>
+        </div>
       </div>
     );
   }
