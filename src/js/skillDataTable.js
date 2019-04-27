@@ -293,7 +293,6 @@ function createDamagePanel(chosenSkills, skillData) {
           const thirdLayer = dmgDatum.range;
 
           const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
-          console.log(firstLayer, secondLayer, thirdLayer, fourthLayer);
           // Account for new party member contributing this type of damage
           if (!physicalContributions.includes(dmgTypeKey)) {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].numSources += 1;
@@ -312,12 +311,18 @@ function createDamagePanel(chosenSkills, skillData) {
           if ((dmgDatum.element || '') !== '') {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].composite += 1;
             // account for in elemental damage
+            const elemDmgKey = elementalDamageKey(dmgDatum.element, secondLayer, fourthLayer)
+            if (!elementalContributions.includes(elemDmgKey)) {
+              dmgPropArray[index]['elemental'][dmgDatum.element][secondLayer].numSources += 1;
+              elementalContributions.push(elemDmgKey);
+            }
+            dmgPropArray[index]['elemental'][dmgDatum.element][secondLayer].count += 1;
           }
         } else {
           const secondLayer = dmgDatum.element;
           const thirdLayer = dmgDatum.target;
 
-          const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
+          const dmgTypeKey =  elementalDamageKey(secondLayer, thirdLayer, fourthLayer);
           // Account for new type of damage
           if (!elementalContributions.includes(dmgTypeKey)) {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer].numSources += 1;
@@ -332,7 +337,12 @@ function createDamagePanel(chosenSkills, skillData) {
   });
 
   const allDamageProps = mergeDamageProperties(dmgPropArray);
+  console.log(allDamageProps);
   return generateDmgPanelHTML(allDamageProps);
+}
+
+function elementalDamageKey(element, target, conditional) {
+  return 'elemental' + element + target + conditional;
 }
 
 /**
