@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/eon-party-planner/precache-manifest.3b5037f3e2a9e5dfefbaf1094ec1253c.js"
+  "/eon-party-planner/precache-manifest.6bb06607e1cd1971b64b8eef9f702008.js"
 );
 
 workbox.clientsClaim();
