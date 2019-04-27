@@ -237,8 +237,7 @@ function generatePhysicalDmgPanelHTML(physicalDmgProps) {
     });
   });
 
-  return (<div>
-    <Table className='dmg-table' responsive="xl" size="sm">
+  return (<Table className='dmg-table' responsive="xl" size="sm">
       <thead>
         <tr>
           <th>Target</th>
@@ -253,8 +252,12 @@ function generatePhysicalDmgPanelHTML(physicalDmgProps) {
       <tbody>
         {rows}
       </tbody>
-    </Table>
-    </div>)
+    </Table>)
+}
+
+function generateElementalDmgPanelHTML(elementalDmgProps) {
+  console.log(elementalDmgProps);
+  return <Table>Hi</Table>
 }
 
 function createDamagePanel(chosenSkills, skillData) {
@@ -337,7 +340,8 @@ function createDamagePanel(chosenSkills, skillData) {
   const allDamageProps = mergeDamageProperties(dmgPropArray);
   console.log(allDamageProps);
   const physDmgPanel = generatePhysicalDmgPanelHTML(allDamageProps.physical);
-  return physDmgPanel;
+  const elemDmgPanel = generateElementalDmgPanelHTML(allDamageProps.elemental);
+  return <div>{physDmgPanel}<br/>{elemDmgPanel}</div>;
 }
 
 function elementalDamageKey(element, target, conditional) {
