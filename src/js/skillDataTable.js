@@ -432,7 +432,7 @@ class SkillDataTable extends Component {
     switch (switchCondition) {
       case 'Damage':
         output = createDamagePanel(this.props.chosen_skills,
-            this.props.skill_data);
+          this.props.skill_data);
         break;
       case 'DPS Support':
         console.log(switchCondition);
@@ -481,13 +481,16 @@ class SkillDataTable extends Component {
    */
   render() {
     const tabs = this.createTabs();
-    const displayPanel = this.createPanel();
+    let displayPanel = this.createPanel();
+
+    if (displayPanel === null) {
+      displayPanel = 'This is where tables go...';
+    }
 
     return (
       <div>
         <Row>{tabs}</Row>
         <div>
-        This is where tables go...
           {displayPanel}
         </div>
       </div>
