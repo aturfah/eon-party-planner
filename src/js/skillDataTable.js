@@ -382,7 +382,7 @@ function createDamagePanel(chosenSkills, skillData) {
   console.log(allDamageProps);
   const physDmgPanel = generatePhysicalDmgPanelHTML(allDamageProps.physical);
   const elemDmgPanel = generateElementalDmgPanelHTML(allDamageProps.elemental);
-  return <div>{physDmgPanel}<br/>{elemDmgPanel}</div>;
+  return <div><h3>Physical Damage</h3>{physDmgPanel}<br/><h3>Elemental Damage</h3>{elemDmgPanel}</div>;
 }
 
 function elementalDamageKey(element, target, conditional) {
