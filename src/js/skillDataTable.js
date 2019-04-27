@@ -7,128 +7,129 @@ import '../css/sidebar.css';
 
 function generateDamageProperties() {
   return {
-    conditonal: {
-      physical: {
-        single: {
-          ranged: {
+    physical: {
+      single: {
+        ranged: {
+          conditonal: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],
+            types: [],  
           },
-          melee: {
+          unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],
-          },
-        },
-        row: {
-          ranged: {
-            composite: 0,
-            count: 0,
-            numSources: 0,
-            types: [],
-          },
-          melee: {
-            composite: 0,
-            count: 0,
-            numSources: 0,
-            types: [],
+            types: [],  
           },
         },
-        pierce: {
-          ranged: {
+        melee: {
+          conditonal: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],
+            types: [],  
           },
-          melee: {
+          unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],
-          },
-        },
-        aoe: {
-          ranged: {
-            composite: 0,
-            count: 0,
-            numSources: 0,
-            types: [],
-          },
-          melee: {
-            composite: 0,
-            count: 0,
-            numSources: 0,
-            types: [],
+            types: [],  
           },
         },
       },
-      elemental: {},
-    },
-    unconditional: {
-      physical: {
-        single: {
-          ranged: {
+      row: {
+        ranged: {
+          conditonal: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],
+            types: [],  
           },
-          melee: {
+          unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],
+            types: [],  
           },
         },
-        row: {
-          ranged: {
+        melee: {
+          conditonal: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],
+            types: [],  
           },
-          melee: {
+          unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],
-          },
-        },
-        pierce: {
-          ranged: {
-            composite: 0,
-            count: 0,
-            numSources: 0,
-            types: [],
-          },
-          melee: {
-            composite: 0,
-            count: 0,
-            numSources: 0,
-            types: [],
-          },
-        },
-        aoe: {
-          ranged: {
-            composite: 0,
-            count: 0,
-            numSources: 0,
-            types: [],
-          },
-          melee: {
-            composite: 0,
-            count: 0,
-            numSources: 0,
-            types: [],
+            types: [],  
           },
         },
       },
-      elemental: {},
+      pierce: {
+        ranged: {
+          conditonal: {
+            composite: 0,
+            count: 0,
+            numSources: 0,
+            types: [],  
+          },
+          unconditional: {
+            composite: 0,
+            count: 0,
+            numSources: 0,
+            types: [],  
+          },
+        },
+        melee: {
+          conditonal: {
+            composite: 0,
+            count: 0,
+            numSources: 0,
+            types: [],  
+          },
+          unconditional: {
+            composite: 0,
+            count: 0,
+            numSources: 0,
+            types: [],  
+          },
+        },
+      },
+      aoe: {
+        ranged: {
+          conditonal: {
+            composite: 0,
+            count: 0,
+            numSources: 0,
+            types: [],  
+          },
+          unconditional: {
+            composite: 0,
+            count: 0,
+            numSources: 0,
+            types: [],  
+          },
+        },
+        melee: {
+          conditonal: {
+            composite: 0,
+            count: 0,
+            numSources: 0,
+            types: [],  
+          },
+          unconditional: {
+            composite: 0,
+            count: 0,
+            numSources: 0,
+            types: [],  
+          },
+        },
+      },
     },
+    elemental: {},
   };
 }
 
@@ -160,6 +161,11 @@ function mergeDamageProperties(dmgPropArray) {
 
 function generateDmgPanelHTML(allDamageProps) {
   console.log(allDamageProps);
+  const rows = [];
+
+  // Physical Damage
+
+  
 
   return <div></div>
 }
@@ -189,12 +195,13 @@ function createDamagePanel(chosenSkills, skillData) {
 
       // Build out that player's damageProperties
       skillDamage.forEach(function(dmgDatum) {
-        const firstLayer = 'unconditional';
-        const secondLayer = dmgDatum.category;
-        const thirdLayer = dmgDatum.target;
-        const fourthLayer = dmgDatum.range;
+        const firstLayer = dmgDatum.category;
+        const secondLayer = dmgDatum.target;
+        const thirdLayer = dmgDatum.range;
+        const fourthLayer = 'unconditional';
 
-        if (secondLayer === 'physical') {
+
+        if (firstLayer === 'physical') {
           console.log(firstLayer, secondLayer, thirdLayer, fourthLayer);
           // Account for new party member contributing this type of damage
           const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
