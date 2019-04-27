@@ -140,6 +140,10 @@ function generateDamageProperties() {
           numSources: 0,
           count: 0
         },
+        pierce: {
+          numSources: 0,
+          count: 0
+        },
         aoe: {
           numSources: 0,
           count: 0
@@ -154,6 +158,10 @@ function generateDamageProperties() {
           numSources: 0,
           count: 0
         },
+        pierce: {
+          numSources: 0,
+          count: 0
+        },
         aoe: {
           numSources: 0,
           count: 0
@@ -165,6 +173,10 @@ function generateDamageProperties() {
           count: 0
         },
         row: {
+          numSources: 0,
+          count: 0
+        },
+        pierce: {
           numSources: 0,
           count: 0
         },
@@ -256,7 +268,6 @@ function generatePhysicalDmgPanelHTML(physicalDmgProps) {
 }
 
 function generateElementalDmgPanelHTML(elementalDmgProps) {
-  console.log(elementalDmgProps);
   const rows = []
 
 
