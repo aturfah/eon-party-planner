@@ -93,14 +93,14 @@ class App extends Component {
         <Container fluid={true} className="h-100">
           <Row className='HeaderRow'><Header></Header></Row>
           <Row className="BodyRow h-100">
-            <SideBar xs="4"
+            <SideBar xs="5"
               classes={this.state.classes}
               images={this.images}
               skill_data={skills}
               chosen_skills={this.state.skills}>
             </SideBar>
 
-            <MainPanel xs="8"
+            <MainPanel xs="7"
               images={this.images}
               active_panel={this.state.active_panel}
               selectable_classes={classes}
