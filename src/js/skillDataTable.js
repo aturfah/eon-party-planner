@@ -165,34 +165,48 @@ function generateDmgPanelHTML(allDamageProps) {
 
   // Physical Damage
   const physicalDmgProps = allDamageProps.physical;
-  console.log(physicalDmgProps);
+  // console.log(physicalDmgProps);
   Object.keys(physicalDmgProps).forEach(function(skillTarget) {
-    console.log(skillTarget);
+    // console.log(skillTarget);
     const skillTargetData = physicalDmgProps[skillTarget];
     Object.keys(skillTargetData).forEach(function(skillRange) {
       const skillRangeData = skillTargetData[skillRange];
-      console.log('--', skillTarget, skillRange);
-      const newRow = <tr></tr>;
+      // console.log('--', skillTarget, skillRange);
       Object.keys(skillRangeData).forEach(function(skillCondition) {
-        console.log('-- --', skillTarget, skillRange, skillCondition);
+        // console.log('-- --', skillTarget, skillRange, skillCondition);
+        // console.log(skillConditonCounts);
         const skillConditonCounts = skillRangeData[skillCondition];
-        console.log(skillConditonCounts);
+        const skillColumns = [];
+        skillColumns.push(<td>{skillTarget}</td>);
+        skillColumns.push(<td>{skillRange}</td>);
+        skillColumns.push(<td>{skillCondition}</td>);
+
+        skillColumns.push(<td>{skillConditonCounts.count}</td>);
+        skillColumns.push(<td>{skillConditonCounts.numSources}</td>);
+        skillColumns.push(<td>{skillConditonCounts.composite}</td>);
+
+        let dmgTypes = 'None';
+        if (skillConditonCounts.types.length !== 0) {
+          dmgTypes = skillConditonCounts.types.join(', ')
+        }
+        skillColumns.push(<td>{dmgTypes}</td>);
+
+        rows.push(<tr>{skillColumns}</tr>);
       })
     });
   });
 
   return (<div>
-    <Table responsive="xl" size="sm">
+    <Table className='dmg-table' responsive="xl" size="sm">
       <thead>
         <tr>
-          <th>col1</th>
-          <th>col2</th>
-          <th>col3</th>
-          <th>col4</th>
-          <th>col5</th>
-          <th>col6</th>
-          <th>col7</th>
-          <th>col8</th>
+          <th>Target</th>
+          <th>Range</th>
+          <th>Conditional</th>
+          <th>Total Num. Skills</th>
+          <th>Num. Party Members</th>
+          <th>Num. Composite</th>
+          <th>Damage Types</th>
         </tr>
       </thead>
       <tbody>
