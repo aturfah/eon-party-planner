@@ -62,7 +62,7 @@ class SideBar extends Component {
       <Col xs={this.xs} sm={this.sm} className="SideBar">
 
         <Row className="image-pane">
-          <h3>Party Overview</h3>
+          <h2>Party Overview</h2>
           {classImages}
         </Row>
         <SkillDataTable

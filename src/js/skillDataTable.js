@@ -382,7 +382,7 @@ function createDamagePanel(chosenSkills, skillData) {
   console.log(allDamageProps);
   const physDmgPanel = generatePhysicalDmgPanelHTML(allDamageProps.physical);
   const elemDmgPanel = generateElementalDmgPanelHTML(allDamageProps.elemental);
-  return <div><h3>Physical Damage</h3>{physDmgPanel}<br/><h3>Elemental Damage</h3>{elemDmgPanel}</div>;
+  return <div><br/><h4>Physical Damage</h4>{physDmgPanel}<br/><h4>Elemental Damage</h4>{elemDmgPanel}</div>;
 }
 
 function elementalDamageKey(element, target, conditional) {
@@ -466,7 +466,7 @@ class SkillDataTable extends Component {
       const headerTab = (
         <Col key={index} className="sidebar-tab-label"
           onClick={() => clickCallback(index)}>
-          <h5>{header}</h5>
+          <h4>{header}</h4>
         </Col>
       );
       results.push(headerTab);
