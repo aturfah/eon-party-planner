@@ -130,7 +130,50 @@ function generateDamageProperties() {
         },
       },
     },
-    elemental: {},
+    elemental: {
+      fire: {
+        single: {
+          numSources: 0,
+          count: 0
+        },
+        row: {
+          numSources: 0,
+          count: 0
+        },
+        aoe: {
+          numSources: 0,
+          count: 0
+        }
+      },
+      ice: {
+        single: {
+          numSources: 0,
+          count: 0
+        },
+        row: {
+          numSources: 0,
+          count: 0
+        },
+        aoe: {
+          numSources: 0,
+          count: 0
+        }
+      },
+      electric: {
+        single: {
+          numSources: 0,
+          count: 0
+        },
+        row: {
+          numSources: 0,
+          count: 0
+        },
+        aoe: {
+          numSources: 0,
+          count: 0
+        }
+      },
+    },
   };
 }
 
@@ -228,7 +271,9 @@ function createDamagePanel(chosenSkills, skillData) {
 
   chosenSkills.forEach(function(characterSkills, index) {
     console.log('Party member', index);
-    const contributions = [];
+    const physicalContributions = [];
+    const elementalContributions = [];
+
     characterSkills.forEach(function(chosenSkill) {
       const skillDatum = skillData[chosenSkill];
       const skillDamage = skillDatum['damage_type'] || [];
@@ -242,18 +287,17 @@ function createDamagePanel(chosenSkills, skillData) {
       // Build out that player's damageProperties
       skillDamage.forEach(function(dmgDatum) {
         const firstLayer = dmgDatum.category;
-        const secondLayer = dmgDatum.target;
-        const thirdLayer = dmgDatum.range;
         const fourthLayer = 'unconditional';
-
-
         if (firstLayer === 'physical') {
+          const secondLayer = dmgDatum.target;
+          const thirdLayer = dmgDatum.range;
+
+          const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
           console.log(firstLayer, secondLayer, thirdLayer, fourthLayer);
           // Account for new party member contributing this type of damage
-          const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
-          if (!contributions.includes(dmgTypeKey)) {
+          if (!physicalContributions.includes(dmgTypeKey)) {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].numSources += 1;
-            contributions.push(dmgTypeKey);
+            physicalContributions.push(dmgTypeKey);
           }
 
           // Account for another skill of this damge type
@@ -270,7 +314,23 @@ function createDamagePanel(chosenSkills, skillData) {
             // account for in elemental damage
           }
         } else {
-          // FILL ME IN LATER WITH LOGIC FOR ELEMENTAL DAMAGE
+          const secondLayer = dmgDatum.element;
+          const thirdLayer = dmgDatum.target;
+
+
+          console.log("---");
+          console.log(dmgDatum);
+          console.log(firstLayer, secondLayer, thirdLayer, fourthLayer);
+          const dmgTypeKey = firstLayer + secondLayer + thirdLayer + fourthLayer;
+          // Account for new type of damage
+          if (!elementalContributions.includes(dmgTypeKey)) {
+            dmgPropArray[index][firstLayer][secondLayer][thirdLayer].numSources += 1;
+            elementalContributions.push(dmgTypeKey);
+          }
+
+          // Account for another skill of this damge type
+          dmgPropArray[index][firstLayer][secondLayer][thirdLayer].count += 1;
+
         }
       });
     });
