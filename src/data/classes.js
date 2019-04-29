@@ -15,7 +15,16 @@ var classes = {
             "sparkblade",
             "burstblade",
             "heroicsteel",
-            "greatbravery"
+            "greatbravery",
+            "elementalshield",
+            "fervor",
+            "newchallenger",
+            "darkimage",
+            "actbreaker",
+            "regimentrave",
+            "forcegift",
+            "retainforce",
+            "guardrush"
         ],
         "img_url": "static/eox-img/hero.png"
     },

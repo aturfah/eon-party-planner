@@ -276,7 +276,101 @@ var skills = {
 
       }
     }
-  }
+  },
+  "elementalshield": {
+    "id": "elementalshield",
+    "type": "veteran",
+    "name": "Elemental Shield",
+    "requires": {
+      "physicalshield": 2
+    },
+    "damage_type": [{
+      "category": "physical",
+      "target": "single",
+      "range": "melee",
+      "type": "bash"
+    }]
+  },
+  "fervor": {
+    "id": "fervor",
+    "type": "veteran",
+    "name": "Fervor",
+    "requires": {
+      "clearmind": 1
+    }
+  },
+  "newchallenger": {
+    "id": "newchallenger",
+    "type": "veteran",
+    "name": "New Challenger"
+  },
+  "darkimage": {
+    "id": "darkimage",
+    "type": "master",
+    "name": "Dark Image"
+  },
+  "actbreaker": {
+    "id": "actbreaker",
+    "type": "master",
+    "name": "Act Breaker",
+    "damage_type": [{
+      "category": "physical",
+      "target": "single",
+      "range": "melee",
+      "type": "cut"
+    }],
+    "requires": {
+      "burstblade": 3
+    }
+  },
+  "regimentrave": {
+    "id": "regimentrave",
+    "type": "master",
+    "name": "Regiment Rave",
+    "damage_type": [{
+      "category": "physical",
+      "target": "single",
+      "range": "melee",
+      "type": "cut",
+      "element": "fire"
+    }],
+    "requires": {
+      "actbreaker": 3
+    }
+  },
+  "forcegift": {
+    "id": "forcegift",
+    "type": "master",
+    "name": "Force Gift",
+    "damage_type": [{
+      "category": "physical",
+      "target": "single",
+      "range": "melee",
+      "type": "cut"
+    }],
+  },
+  "retainforce": {
+    "id": "retainforce",
+    "type": "master",
+    "name": "Retain Force",
+    "requires": {
+      "forcegift": 3
+    }
+  },
+  "guardrush": {
+    "id": "guardrush",
+    "type": "master",
+    "name": "Guard Rush",
+    "requires": {
+      "elementalshield": 3
+    },
+    "damage_type": [{
+      "category": "physical",
+      "target": "single",
+      "range": "melee",
+      "type": "bash"
+    }]
+  },
 };
 
 export default skills;
