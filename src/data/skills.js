@@ -371,6 +371,42 @@ var skills = {
       "type": "bash"
     }]
   },
+  "attackorder": {
+    "id": "attackorder",
+    "type": "novice",
+    "name": "Attack Order",
+    "dps_support": [
+      {
+        "type": "buff",
+        "target": "row",
+        "stat": "attack"
+      }
+    ],
+    "buff": [
+      {
+        "property": "dps_support",
+        "target": 0,
+      }
+    ]
+  },
+  "guardorder": {
+    "id": "guardorder",
+    "type": "novice",
+    "name": "Guard Order",
+    "dps_support": [
+      {
+        "type": "buff",
+        "target": "row",
+        "stat": "defense"
+      }
+    ],
+    "buff": [
+      {
+        "property": "dps_support",
+        "target": 0,
+      }
+    ]
+  },
 };
 
 export default skills;

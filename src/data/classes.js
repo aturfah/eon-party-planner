@@ -75,7 +75,10 @@ var classes = {
     },
     "sovereign": {
         "name": "Sovereign",
-        "skills": [],
+        "skills": [
+          "attackorder",
+          "guardorder",
+        ],
         "img_url": "static/eox-img/sovereign.png"
     },
     "shogun": {
