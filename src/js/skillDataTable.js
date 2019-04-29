@@ -207,6 +207,8 @@ function mergeObject(baseObj, newObj) {
   return baseObj;
 }
 
+
+/**BEGIN DAMAGE PANEL */
 function mergeDamageProperties(dmgPropArray) {
   let allDamageProperties = generateDamageProperties();
   dmgPropArray.forEach(function(datum) {
@@ -388,6 +390,13 @@ function createDamagePanel(chosenSkills, skillData) {
 function elementalDamageKey(element, target, conditional) {
   return 'elemental' + element + target + conditional;
 }
+/**END DAMAGE PANEL */
+
+/**BEGIN BUFF/DEBUFFS */
+function createDeBuffPanel(chosenSkills, skillData) {
+  return <div>I AM BUFFS</div>
+}
+/**END BUFF/DEBUFFS */
 
 /**
  * Table that renders with relevant skill data
@@ -402,7 +411,7 @@ class SkillDataTable extends Component {
 
     this.headers = ['Damage', 'DPS Support',
       'Damage Mitigation', 'Healing',
-      'Lockdown'];
+      'Lockdown', 'De/Buffs'];
     this.state = {
       activePanel: 0,
     };
@@ -445,6 +454,10 @@ class SkillDataTable extends Component {
         break;
       case 'Lockdown':
         console.log(switchCondition);
+        break;
+      case 'De/Buffs':
+        output = createDeBuffPanel(this.props.chosen_skills,
+          this.props.skill_data);
         break;
       default:
         throw Error;
