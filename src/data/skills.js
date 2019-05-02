@@ -379,7 +379,11 @@ var skills = {
       {
         "type": "buff",
         "target": "row",
-        "stat": "attack"
+        "stat": "attack",
+        "duration": {
+          "min": 3,
+          "max": 5
+        }
       }
     ],
     "buff": [
@@ -397,7 +401,11 @@ var skills = {
       {
         "type": "buff",
         "target": "row",
-        "stat": "defense"
+        "stat": "defense",
+        "duration": {
+          "min": 3,
+          "max": 5
+        }
       }
     ],
     "buff": [
