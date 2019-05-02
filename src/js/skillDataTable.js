@@ -392,9 +392,8 @@ function elementalDamageKey(element, target, conditional) {
 
 /**BEGIN BUFF/DEBUFFS */
 function createDeBuffPanel(chosenSkills, skillData) {
-  console.log("HI!!!")
-  let buffList = [];
-  let debuffList = [];
+  const buffList = [];
+  const debuffList = [];
   
   chosenSkills.forEach(function(characterSkills, index) {
     console.log('Party Member', index);
@@ -423,10 +422,20 @@ function createDeBuffPanel(chosenSkills, skillData) {
     });
   });
 
-  console.log(buffList);
-  console.log(debuffList);
+  return (<div>
+    {generateBuffHTML(buffList)}
+    {generateDebuffHTML(debuffList)}
+  </div>)
+}
 
+function generateBuffHTML(buffList) {
+  console.log(buffList);
   return <div>I AM BUFFS</div>
+}
+
+function generateDebuffHTML(debuffList) {
+  console.log(debuffList);
+  return <div>I AM DEBUFFS</div>
 }
 /**END BUFF/DEBUFFS */
 
