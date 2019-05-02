@@ -403,17 +403,28 @@ function createDeBuffPanel(chosenSkills, skillData) {
       const skillBuff = skillDatum['buff'] || [];
       const skillDebuff = skillDatum['debuff'] || [];
 
-      // Skill has buffs
-      if (skillBuff.length) {
-        console.log("I AM A BUFF", chosenSkill)
-      }
+      // Handle Buffs
+      skillBuff.forEach(function(buffObject) {
+        const skillProperty = buffObject.property;
+        const skillIndex = buffObject.target;
+        const buffInfo = skillDatum[skillProperty][skillIndex];
+        buffInfo.name = chosenSkill;
+        buffList.push(buffInfo);
+      });
 
-      // Skill has debuffs
-      if (skillDebuff.length) {
-        console.log("I AM A DEBUFF", chosenSkill)
-      }
+      // Handle Debuffs
+      skillDebuff.forEach(function(debuffObject) {
+        const skillProperty = debuffObject.property;
+        const skillIndex = debuffObject.target;
+        const debuffInfo = skillDatum[skillProperty][skillIndex];
+        debuffInfo.name = chosenSkill;
+        debuffList.push(debuffInfo);
+      });
     });
   });
+
+  console.log(buffList);
+  console.log(debuffList);
 
   return <div>I AM BUFFS</div>
 }
