@@ -5,7 +5,25 @@ import Table from 'react-bootstrap/Table';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 
+function mergeObject(baseObj, newObj) {
+  Object.keys(baseObj).forEach(function(keyName) {
+    if (typeof baseObj[keyName] === 'number') {
+      baseObj[keyName] += newObj[keyName];
+    } else if (Array.isArray(baseObj[keyName])) {
+      newObj[keyName].forEach(function(value) {
+        if (!baseObj[keyName].includes(value)) {
+          baseObj[keyName].push(value);
+        }
+      });
+    } else if (typeof baseObj[keyName] === 'object') {
+      baseObj[keyName] = mergeObject(baseObj[keyName], newObj[keyName]);
+    }
+  });
 
+  return baseObj;
+}
+
+/**BEGIN DAMAGE PANEL */
 function generateDamageProperties() {
   return {
     physical: {
@@ -189,26 +207,6 @@ function generateDamageProperties() {
   };
 }
 
-function mergeObject(baseObj, newObj) {
-  Object.keys(baseObj).forEach(function(keyName) {
-    if (typeof baseObj[keyName] === 'number') {
-      baseObj[keyName] += newObj[keyName];
-    } else if (Array.isArray(baseObj[keyName])) {
-      newObj[keyName].forEach(function(value) {
-        if (!baseObj[keyName].includes(value)) {
-          baseObj[keyName].push(value);
-        }
-      });
-    } else if (typeof baseObj[keyName] === 'object') {
-      baseObj[keyName] = mergeObject(baseObj[keyName], newObj[keyName]);
-    }
-  });
-
-  return baseObj;
-}
-
-
-/**BEGIN DAMAGE PANEL */
 function mergeDamageProperties(dmgPropArray) {
   let allDamageProperties = generateDamageProperties();
   dmgPropArray.forEach(function(datum) {
@@ -394,6 +392,29 @@ function elementalDamageKey(element, target, conditional) {
 
 /**BEGIN BUFF/DEBUFFS */
 function createDeBuffPanel(chosenSkills, skillData) {
+  console.log("HI!!!")
+  let buffList = [];
+  let debuffList = [];
+  
+  chosenSkills.forEach(function(characterSkills, index) {
+    console.log('Party Member', index);
+    characterSkills.forEach(function(chosenSkill){
+      const skillDatum = skillData[chosenSkill];
+      const skillBuff = skillDatum['buff'] || [];
+      const skillDebuff = skillDatum['debuff'] || [];
+
+      // Skill has buffs
+      if (skillBuff.length) {
+        console.log("I AM A BUFF", chosenSkill)
+      }
+
+      // Skill has debuffs
+      if (skillDebuff.length) {
+        console.log("I AM A DEBUFF", chosenSkill)
+      }
+    });
+  });
+
   return <div>I AM BUFFS</div>
 }
 /**END BUFF/DEBUFFS */
