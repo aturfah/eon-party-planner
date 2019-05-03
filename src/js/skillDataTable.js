@@ -231,21 +231,22 @@ function generatePhysicalDmgPanelHTML(physicalDmgProps) {
         // console.log(skillConditonCounts);
         const skillConditonCounts = skillRangeData[skillCondition];
         const skillColumns = [];
-        skillColumns.push(<td>{skillTarget}</td>);
-        skillColumns.push(<td>{skillRange}</td>);
-        skillColumns.push(<td>{skillCondition}</td>);
+        skillColumns.push(<td key='Target'>{skillTarget}</td>);
+        skillColumns.push(<td key='Range'>{skillRange}</td>);
+        skillColumns.push(<td key='Conditional'>{skillCondition}</td>);
 
-        skillColumns.push(<td>{skillConditonCounts.count}</td>);
-        skillColumns.push(<td>{skillConditonCounts.numSources}</td>);
-        skillColumns.push(<td>{skillConditonCounts.composite}</td>);
+        skillColumns.push(<td key='SkillCount'>{skillConditonCounts.count}</td>);
+        skillColumns.push(<td key='PartyCount'>{skillConditonCounts.numSources}</td>);
+        skillColumns.push(<td key='Composite'>{skillConditonCounts.composite}</td>);
 
         let dmgTypes = 'None';
         if (skillConditonCounts.types.length !== 0) {
           dmgTypes = skillConditonCounts.types.join(', ')
         }
-        skillColumns.push(<td>{dmgTypes}</td>);
+        skillColumns.push(<td key='DmgTypes'>{dmgTypes}</td>);
 
-        rows.push(<tr>{skillColumns}</tr>);
+        let rowKey = skillTarget + skillRange + skillCondition + JSON.stringify(skillConditonCounts);
+        rows.push(<tr key={rowKey}>{skillColumns}</tr>);
       })
     });
   });
@@ -277,12 +278,13 @@ function generateElementalDmgPanelHTML(elementalDmgProps) {
     Object.keys(skillRangeData).forEach(function (skillRange) {
       const skillData = skillRangeData[skillRange];
       const skillColumns = [];
-      skillColumns.push(<td>{skillElement}</td>);
-      skillColumns.push(<td>{skillRange}</td>);
-      skillColumns.push(<td>idk</td>);
-      skillColumns.push(<td>{skillData.count}</td>);
-      skillColumns.push(<td>{skillData.numSources}</td>);
-      rows.push(<tr>{skillColumns}</tr>);
+      skillColumns.push(<td key='Elt'>{skillElement}</td>);
+      skillColumns.push(<td key='Range'>{skillRange}</td>);
+      skillColumns.push(<td key='Conditional'>idk</td>);
+      skillColumns.push(<td key='Count'>{skillData.count}</td>);
+      skillColumns.push(<td key='Sources'>{skillData.numSources}</td>);
+      const rowKey = skillElement + skillRange + JSON.stringify(skillData);
+      rows.push(<tr key={rowKey}>{skillColumns}</tr>);
     });
   });
 
