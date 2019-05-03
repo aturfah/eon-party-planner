@@ -24,3 +24,21 @@ export function generateTableHTML(headers, rows) {
     </Table>
   )
 }
+
+export function mergeObject(baseObj, newObj) {
+  Object.keys(baseObj).forEach(function(keyName) {
+    if (typeof baseObj[keyName] === 'number') {
+      baseObj[keyName] += newObj[keyName];
+    } else if (Array.isArray(baseObj[keyName])) {
+      newObj[keyName].forEach(function(value) {
+        if (!baseObj[keyName].includes(value)) {
+          baseObj[keyName].push(value);
+        }
+      });
+    } else if (typeof baseObj[keyName] === 'object') {
+      baseObj[keyName] = mergeObject(baseObj[keyName], newObj[keyName]);
+    }
+  });
+
+  return baseObj;
+}
