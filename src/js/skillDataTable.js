@@ -407,7 +407,8 @@ function createDeBuffPanel(chosenSkills, skillData) {
         const skillProperty = buffObject.property;
         const skillIndex = buffObject.target;
         const buffInfo = skillDatum[skillProperty][skillIndex];
-        buffInfo.name = chosenSkill;
+        buffInfo.name = skillDatum.name;
+        buffInfo.source = index;
         buffList.push(buffInfo);
       });
 
@@ -416,7 +417,7 @@ function createDeBuffPanel(chosenSkills, skillData) {
         const skillProperty = debuffObject.property;
         const skillIndex = debuffObject.target;
         const debuffInfo = skillDatum[skillProperty][skillIndex];
-        debuffInfo.name = chosenSkill;
+        debuffInfo.name = skillDatum.name;
         debuffList.push(debuffInfo);
       });
     });
@@ -430,7 +431,41 @@ function createDeBuffPanel(chosenSkills, skillData) {
 
 function generateBuffHTML(buffList) {
   console.log(buffList);
-  return <div>I AM BUFFS</div>
+  const rows = []
+  buffList.forEach(function(buffDatum) {
+    const skillColumns = [];
+    skillColumns.push(<td key='Name'>{buffDatum.name}</td>);
+    skillColumns.push(<td key='Target'>{buffDatum.target}</td>);
+    skillColumns.push(<td key='Stat'>{buffDatum.stat}</td>);
+    skillColumns.push(<td key='Source'>{buffDatum.source}</td>);
+
+    if (buffDatum.duration.min === buffDatum.duration.max) {
+      skillColumns.push(<td key='Time'>{buffDatum.duration.min}</td>)
+    } else {
+      let buffDurationStr = '';
+      buffDurationStr += buffDatum.duration.min;
+      buffDurationStr += ' - ';
+      buffDurationStr += buffDatum.duration.max;
+      skillColumns.push(<td key='Time'>{buffDurationStr}</td>)
+    }
+    const rowKey = buffDatum.name + buffDatum.source
+    rows.push(<tr key={rowKey}>{skillColumns}</tr>);
+  });
+
+  return (<Table className='dmg-table' responsive="xl" size="sm">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Target</th>
+          <th>Stat</th>
+          <th>Source</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows}
+      </tbody>
+    </Table>)
 }
 
 function generateDebuffHTML(debuffList) {
