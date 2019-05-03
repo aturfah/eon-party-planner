@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Table from 'react-bootstrap/Table';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 import {deepCopy, generateTableHTML, mergeObject} from './helpers';
@@ -414,20 +413,8 @@ function generateBuffHTML(buffList) {
     rows.push(<tr key={rowKey}>{skillColumns}</tr>);
   });
 
-  return (<Table className='dmg-table' responsive="xl" size="sm">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Target</th>
-          <th>Stat</th>
-          <th>Source</th>
-          <th>Duration</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows}
-      </tbody>
-    </Table>)
+  const headers = ['Name', 'Target', 'Stat', 'Source', 'Duration'];
+  return generateTableHTML(headers, rows);
 }
 
 function generateDebuffHTML(debuffList) {
