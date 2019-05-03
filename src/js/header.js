@@ -13,7 +13,11 @@ class Header extends Component {
     return (
       <div className="Header">
         <h1>Etrian Odyssey Nexus Party Planner</h1>
-        <h5><a href="https://github.com/aturfah/eon-party-planner">Github <i className="fab fa-github"></i></a></h5>
+        <h5>
+          <a href="https://github.com/aturfah/eon-party-planner">
+            Github <i className="fab fa-github"></i>
+          </a>
+        </h5>
       </div>
     );
   }
