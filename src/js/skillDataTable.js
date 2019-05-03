@@ -261,10 +261,6 @@ function generateElementalDmgPanelHTML(elementalDmgProps) {
 }
 
 function createDamagePanel(chosenSkills, skillData) {
-  /*
-    Physical -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Ranged/Melee (Single-element/Composite)
-    Elemental -> Un/Conditional -> Single Target/Row/Pierce/AOE -> Fire/Ice/Elec
-   */
   const dmgPropArray = [];
   [1, 2, 3, 4, 5].forEach(() => {
     dmgPropArray.push(generateDamageProperties());
