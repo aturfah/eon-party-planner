@@ -226,7 +226,8 @@ function generatePhysicalDmgPanelHTML(physicalDmgProps) {
         }
         skillColumns.push(<td key='DmgTypes'>{dmgTypes}</td>);
 
-        const rowKey = skillTarget + skillRange + skillCondition + JSON.stringify(skillConditonCounts);
+        const rowKey = skillTarget + skillRange +
+          skillCondition + JSON.stringify(skillConditonCounts);
         rows.push(<tr key={rowKey}>{skillColumns}</tr>);
       });
     });
