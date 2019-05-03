@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
+import deepCopy from './helpers';
 
 function mergeObject(baseObj, newObj) {
   Object.keys(baseObj).forEach(function(keyName) {
@@ -398,7 +399,7 @@ function createDeBuffPanel(chosenSkills, skillData) {
   chosenSkills.forEach(function(characterSkills, index) {
     console.log('Party Member', index);
     characterSkills.forEach(function(chosenSkill){
-      const skillDatum = skillData[chosenSkill];
+      const skillDatum = deepCopy(skillData[chosenSkill]);
       const skillBuff = skillDatum['buff'] || [];
       const skillDebuff = skillDatum['debuff'] || [];
 
