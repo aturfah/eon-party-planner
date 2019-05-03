@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import '../css/sidebar.css';
 import {deepCopy, generateTableHTML, mergeObject} from './helpers';
 
-/**BEGIN DAMAGE PANEL */
+/** BEGIN DAMAGE PANEL */
 function generateDamageProperties() {
   return {
     physical: {
@@ -15,13 +15,13 @@ function generateDamageProperties() {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
           unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
         },
         melee: {
@@ -29,13 +29,13 @@ function generateDamageProperties() {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
           unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
         },
       },
@@ -45,13 +45,13 @@ function generateDamageProperties() {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
           unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
         },
         melee: {
@@ -59,13 +59,13 @@ function generateDamageProperties() {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
           unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
         },
       },
@@ -75,13 +75,13 @@ function generateDamageProperties() {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
           unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
         },
         melee: {
@@ -89,13 +89,13 @@ function generateDamageProperties() {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
           unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
         },
       },
@@ -105,13 +105,13 @@ function generateDamageProperties() {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
           unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
         },
         melee: {
@@ -119,13 +119,13 @@ function generateDamageProperties() {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
           unconditional: {
             composite: 0,
             count: 0,
             numSources: 0,
-            types: [],  
+            types: [],
           },
         },
       },
@@ -134,56 +134,56 @@ function generateDamageProperties() {
       fire: {
         single: {
           numSources: 0,
-          count: 0
+          count: 0,
         },
         row: {
           numSources: 0,
-          count: 0
+          count: 0,
         },
         pierce: {
           numSources: 0,
-          count: 0
+          count: 0,
         },
         aoe: {
           numSources: 0,
-          count: 0
-        }
+          count: 0,
+        },
       },
       ice: {
         single: {
           numSources: 0,
-          count: 0
+          count: 0,
         },
         row: {
           numSources: 0,
-          count: 0
+          count: 0,
         },
         pierce: {
           numSources: 0,
-          count: 0
+          count: 0,
         },
         aoe: {
           numSources: 0,
-          count: 0
-        }
+          count: 0,
+        },
       },
       electric: {
         single: {
           numSources: 0,
-          count: 0
+          count: 0,
         },
         row: {
           numSources: 0,
-          count: 0
+          count: 0,
         },
         pierce: {
           numSources: 0,
-          count: 0
+          count: 0,
         },
         aoe: {
           numSources: 0,
-          count: 0
-        }
+          count: 0,
+        },
       },
     },
   };
@@ -222,13 +222,13 @@ function generatePhysicalDmgPanelHTML(physicalDmgProps) {
 
         let dmgTypes = 'None';
         if (skillConditonCounts.types.length !== 0) {
-          dmgTypes = skillConditonCounts.types.join(', ')
+          dmgTypes = skillConditonCounts.types.join(', ');
         }
         skillColumns.push(<td key='DmgTypes'>{dmgTypes}</td>);
 
-        let rowKey = skillTarget + skillRange + skillCondition + JSON.stringify(skillConditonCounts);
+        const rowKey = skillTarget + skillRange + skillCondition + JSON.stringify(skillConditonCounts);
         rows.push(<tr key={rowKey}>{skillColumns}</tr>);
-      })
+      });
     });
   });
 
@@ -238,11 +238,11 @@ function generatePhysicalDmgPanelHTML(physicalDmgProps) {
 }
 
 function generateElementalDmgPanelHTML(elementalDmgProps) {
-  const rows = []
+  const rows = [];
 
   Object.keys(elementalDmgProps).forEach(function(skillElement) {
     const skillRangeData = elementalDmgProps[skillElement];
-    Object.keys(skillRangeData).forEach(function (skillRange) {
+    Object.keys(skillRangeData).forEach(function(skillRange) {
       const skillData = skillRangeData[skillRange];
       const skillColumns = [];
       skillColumns.push(<td key='Elt'>{skillElement}</td>);
@@ -312,7 +312,7 @@ function createDamagePanel(chosenSkills, skillData) {
           if ((dmgDatum.element || '') !== '') {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer][fourthLayer].composite += 1;
             // account for in elemental damage
-            const elemDmgKey = elementalDamageKey(dmgDatum.element, secondLayer, fourthLayer)
+            const elemDmgKey = elementalDamageKey(dmgDatum.element, secondLayer, fourthLayer);
             if (!elementalContributions.includes(elemDmgKey)) {
               dmgPropArray[index]['elemental'][dmgDatum.element][secondLayer].numSources += 1;
               elementalContributions.push(elemDmgKey);
@@ -323,7 +323,7 @@ function createDamagePanel(chosenSkills, skillData) {
           const secondLayer = dmgDatum.element;
           const thirdLayer = dmgDatum.target;
 
-          const dmgTypeKey =  elementalDamageKey(secondLayer, thirdLayer, fourthLayer);
+          const dmgTypeKey = elementalDamageKey(secondLayer, thirdLayer, fourthLayer);
           // Account for new type of damage
           if (!elementalContributions.includes(dmgTypeKey)) {
             dmgPropArray[index][firstLayer][secondLayer][thirdLayer].numSources += 1;
@@ -347,16 +347,16 @@ function createDamagePanel(chosenSkills, skillData) {
 function elementalDamageKey(element, target, conditional) {
   return 'elemental' + element + target + conditional;
 }
-/**END DAMAGE PANEL */
+/** END DAMAGE PANEL */
 
-/**BEGIN BUFF/DEBUFFS */
+/** BEGIN BUFF/DEBUFFS */
 function createDeBuffPanel(chosenSkills, skillData) {
   const buffList = [];
   const debuffList = [];
-  
+
   chosenSkills.forEach(function(characterSkills, index) {
     console.log('Party Member', index);
-    characterSkills.forEach(function(chosenSkill){
+    characterSkills.forEach(function(chosenSkill) {
       const skillDatum = deepCopy(skillData[chosenSkill]);
       const skillBuff = skillDatum['buff'] || [];
       const skillDebuff = skillDatum['debuff'] || [];
@@ -387,12 +387,12 @@ function createDeBuffPanel(chosenSkills, skillData) {
     {generateBuffHTML(buffList)}<br/>
     <h4>Debuffs</h4>
     {generateDebuffHTML(debuffList)}
-  </div>)
+  </div>);
 }
 
 function generateBuffHTML(buffList) {
   console.log(buffList);
-  const rows = []
+  const rows = [];
   buffList.forEach(function(buffDatum) {
     const skillColumns = [];
     skillColumns.push(<td key='Name'>{buffDatum.name}</td>);
@@ -401,15 +401,15 @@ function generateBuffHTML(buffList) {
     skillColumns.push(<td key='Source'>{buffDatum.source}</td>);
 
     if (buffDatum.duration.min === buffDatum.duration.max) {
-      skillColumns.push(<td key='Time'>{buffDatum.duration.min}</td>)
+      skillColumns.push(<td key='Time'>{buffDatum.duration.min}</td>);
     } else {
       let buffDurationStr = '';
       buffDurationStr += buffDatum.duration.min;
       buffDurationStr += ' - ';
       buffDurationStr += buffDatum.duration.max;
-      skillColumns.push(<td key='Time'>{buffDurationStr}</td>)
+      skillColumns.push(<td key='Time'>{buffDurationStr}</td>);
     }
-    const rowKey = buffDatum.name + buffDatum.source
+    const rowKey = buffDatum.name + buffDatum.source;
     rows.push(<tr key={rowKey}>{skillColumns}</tr>);
   });
 
@@ -419,9 +419,9 @@ function generateBuffHTML(buffList) {
 
 function generateDebuffHTML(debuffList) {
   console.log(debuffList);
-  return <div>I AM DEBUFFS</div>
+  return <div>I AM DEBUFFS</div>;
 }
-/**END BUFF/DEBUFFS */
+/** END BUFF/DEBUFFS */
 
 /**
  * Table that renders with relevant skill data
@@ -466,7 +466,7 @@ class SkillDataTable extends Component {
     switch (switchCondition) {
       case 'Damage':
         output = createDamagePanel(this.props.chosen_skills,
-          this.props.skill_data);
+            this.props.skill_data);
         break;
       case 'DPS Support':
         console.log(switchCondition);
@@ -482,7 +482,7 @@ class SkillDataTable extends Component {
         break;
       case 'De/Buffs':
         output = createDeBuffPanel(this.props.chosen_skills,
-          this.props.skill_data);
+            this.props.skill_data);
         break;
       default:
         throw Error;

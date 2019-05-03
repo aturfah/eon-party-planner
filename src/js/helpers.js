@@ -8,7 +8,7 @@ export function deepCopy(obj) {
 export function generateTableHTML(headers, rows) {
   const headerTH = [];
   headers.forEach(function(headerName) {
-    headerTH.push(<td key={headerName}>{headerName}</td>)
+    headerTH.push(<td key={headerName}>{headerName}</td>);
   });
 
   return (
@@ -22,7 +22,7 @@ export function generateTableHTML(headers, rows) {
         {rows}
       </tbody>
     </Table>
-  )
+  );
 }
 
 export function mergeObject(baseObj, newObj) {
