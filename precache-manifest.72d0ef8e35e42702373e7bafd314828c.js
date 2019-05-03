@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/eon-party-planner/static/media/medic.cadbb20a.png"
   },
   {
-    "revision": "93813fa3678238d2e353",
-    "url": "/eon-party-planner/static/css/main.b6a23652.chunk.css"
+    "revision": "0da6bedeee5c0ab2ed59",
+    "url": "/eon-party-planner/static/css/main.67de506d.chunk.css"
   },
   {
     "revision": "d4891a803750b343740c",
     "url": "/eon-party-planner/static/js/runtime~main.4c383004.js"
   },
   {
-    "revision": "114cb8f49de05e43935a",
-    "url": "/eon-party-planner/static/js/2.d3ebdc76.chunk.js"
+    "revision": "55e50d8f8e59923804ca",
+    "url": "/eon-party-planner/static/js/2.b04f799b.chunk.js"
   },
   {
     "revision": "da26bba12295c94855ba2ea53f7ed32c",
@@ -48,8 +48,8 @@ self.__precacheManifest = [
     "url": "/eon-party-planner/static/media/landschnekht.f4091275.png"
   },
   {
-    "revision": "93813fa3678238d2e353",
-    "url": "/eon-party-planner/static/js/main.c3e3e6b8.chunk.js"
+    "revision": "0da6bedeee5c0ab2ed59",
+    "url": "/eon-party-planner/static/js/main.6aca26e2.chunk.js"
   },
   {
     "revision": "194ad7527f66f4dfe1f1da7b95043e69",
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/eon-party-planner/static/media/zodiac.598cc4c2.png"
   },
   {
-    "revision": "d732078c278fe6429de23ee77feb2d20",
+    "revision": "289fb45f5d2af3737b65bedee26abe72",
     "url": "/eon-party-planner/index.html"
   }
 ];
