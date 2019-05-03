@@ -424,7 +424,9 @@ function createDeBuffPanel(chosenSkills, skillData) {
   });
 
   return (<div>
-    {generateBuffHTML(buffList)}
+    <h4>Buffs</h4>
+    {generateBuffHTML(buffList)}<br/>
+    <h4>Debuffs</h4>
     {generateDebuffHTML(debuffList)}
   </div>)
 }
