@@ -4,25 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
-import {deepCopy, generateTableHTML} from './helpers';
-
-function mergeObject(baseObj, newObj) {
-  Object.keys(baseObj).forEach(function(keyName) {
-    if (typeof baseObj[keyName] === 'number') {
-      baseObj[keyName] += newObj[keyName];
-    } else if (Array.isArray(baseObj[keyName])) {
-      newObj[keyName].forEach(function(value) {
-        if (!baseObj[keyName].includes(value)) {
-          baseObj[keyName].push(value);
-        }
-      });
-    } else if (typeof baseObj[keyName] === 'object') {
-      baseObj[keyName] = mergeObject(baseObj[keyName], newObj[keyName]);
-    }
-  });
-
-  return baseObj;
-}
+import {deepCopy, generateTableHTML, mergeObject} from './helpers';
 
 /**BEGIN DAMAGE PANEL */
 function generateDamageProperties() {
@@ -251,27 +233,13 @@ function generatePhysicalDmgPanelHTML(physicalDmgProps) {
     });
   });
 
-  return (<Table className='dmg-table' responsive="xl" size="sm">
-      <thead>
-        <tr>
-          <th>Target</th>
-          <th>Range</th>
-          <th>Conditional</th>
-          <th>Total Num. Skills</th>
-          <th>Num. Party Members</th>
-          <th>Num. Composite</th>
-          <th>Damage Types</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows}
-      </tbody>
-    </Table>)
+  const headers = ['Target', 'Range', 'Conditional', 'Total Num. Skills',
+    'Num. Party Members', 'Num Composite', 'Damage Types'];
+  return generateTableHTML(headers, rows);
 }
 
 function generateElementalDmgPanelHTML(elementalDmgProps) {
   const rows = []
-
 
   Object.keys(elementalDmgProps).forEach(function(skillElement) {
     const skillRangeData = elementalDmgProps[skillElement];
@@ -288,23 +256,9 @@ function generateElementalDmgPanelHTML(elementalDmgProps) {
     });
   });
 
-  const headers = ['Element', 'Target', 'Conditional', 'Total Num. Skills', 'Num. Party Members']
+  const headers = ['Element', 'Target', 'Conditional',
+    'Total Num. Skills', 'Num. Party Members'];
   return generateTableHTML(headers, rows);
-  
-//   (<Table responsive="xl" size="sm">
-//   <thead>
-//     <tr>
-//       <th>Element</th>
-//       <th>Target</th>
-//       <th>Conditional</th>
-//       <th>Total Num. Skills</th>
-//       <th>Num. Party Members</th>
-//     </tr>
-//   </thead>
-//   <tbody>
-//     {rows}
-//   </tbody>
-// </Table>)
 }
 
 function createDamagePanel(chosenSkills, skillData) {
