@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
 import PropTypes from 'prop-types';
 import '../css/sidebar.css';
-import deepCopy from './helpers';
+import {deepCopy, generateTableHTML} from './helpers';
 
 function mergeObject(baseObj, newObj) {
   Object.keys(baseObj).forEach(function(keyName) {
@@ -288,20 +288,23 @@ function generateElementalDmgPanelHTML(elementalDmgProps) {
     });
   });
 
-  return (<Table className='dmg-table' responsive="xl" size="sm">
-  <thead>
-    <tr>
-      <th>Element</th>
-      <th>Target</th>
-      <th>Conditional</th>
-      <th>Total Num. Skills</th>
-      <th>Num. Party Members</th>
-    </tr>
-  </thead>
-  <tbody>
-    {rows}
-  </tbody>
-</Table>)
+  const headers = ['Element', 'Target', 'Conditional', 'Total Num. Skills', 'Num. Party Members']
+  return generateTableHTML(headers, rows);
+  
+//   (<Table responsive="xl" size="sm">
+//   <thead>
+//     <tr>
+//       <th>Element</th>
+//       <th>Target</th>
+//       <th>Conditional</th>
+//       <th>Total Num. Skills</th>
+//       <th>Num. Party Members</th>
+//     </tr>
+//   </thead>
+//   <tbody>
+//     {rows}
+//   </tbody>
+// </Table>)
 }
 
 function createDamagePanel(chosenSkills, skillData) {
