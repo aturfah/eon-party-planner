@@ -78,6 +78,9 @@ var classes = {
         "skills": [
           "attackorder",
           "guardorder",
+          "firearms",
+          "freezearms",
+          "shockarms"
         ],
         "img_url": "static/eox-img/sovereign.png"
     },

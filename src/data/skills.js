@@ -415,6 +415,72 @@ var skills = {
       }
     ]
   },
+  "firearms": {
+    "id": "firearms",
+    "type": "novice",
+    "name": "Fire Arms",
+    "dps_support": [
+      {
+        "type": "buff",
+        "target": "row",
+        "stat": "attack",
+        "duration": {
+          "min": 3,
+          "max": 5
+        }
+      }
+    ],
+    "buff": [
+      {
+        "property": "dps_support",
+        "target": 0,
+      }
+    ]
+  },
+  "freezearms": {
+    "id": "freezearms",
+    "type": "novice",
+    "name": "Freeze Arms",
+    "dps_support": [
+      {
+        "type": "buff",
+        "target": "row",
+        "stat": "attack",
+        "duration": {
+          "min": 3,
+          "max": 5
+        }
+      }
+    ],
+    "buff": [
+      {
+        "property": "dps_support",
+        "target": 0,
+      }
+    ]
+  },
+  "shockarms": {
+    "id": "shockarms",
+    "type": "novice",
+    "name": "Shock Arms",
+    "dps_support": [
+      {
+        "type": "buff",
+        "target": "row",
+        "stat": "attack",
+        "duration": {
+          "min": 3,
+          "max": 5
+        }
+      }
+    ],
+    "buff": [
+      {
+        "property": "dps_support",
+        "target": 0,
+      }
+    ]
+  }
 };
 
 export default skills;
