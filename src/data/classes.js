@@ -80,7 +80,11 @@ var classes = {
           "guardorder",
           "firearms",
           "freezearms",
-          "shockarms"
+          "shockarms",
+          "reinforce",
+          "royalveil",
+          "monarchmarch",
+          "negotiation"
         ],
         "img_url": "static/eox-img/sovereign.png"
     },

@@ -507,7 +507,15 @@ var skills = {
     "id": "monarchmarch",
     "type": "novice",
     "name": "Monarch March",
+    "requires": {
+      "royalveil": 2
+    }
   },
+  "negotiation": {
+    "id": "negotiation",
+    "type": "novice",
+    "name": "Negotiation"
+  }
 };
 
 export default skills;
