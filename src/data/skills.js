@@ -480,6 +480,11 @@ var skills = {
         "target": 0,
       }
     ]
+  },
+  "reinforce": {
+    "id": "reinforce",
+    "type": "novice",
+    "name": "Reinforce"
   }
 };
 
