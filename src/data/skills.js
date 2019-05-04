@@ -397,7 +397,7 @@ var skills = {
     "id": "guardorder",
     "type": "novice",
     "name": "Guard Order",
-    "dps_support": [
+    "dmg_mitigation": [
       {
         "type": "buff",
         "target": "row",
@@ -410,7 +410,7 @@ var skills = {
     ],
     "buff": [
       {
-        "property": "dps_support",
+        "property": "dmg_mitigation",
         "target": 0,
       }
     ]
