@@ -419,6 +419,9 @@ var skills = {
     "id": "firearms",
     "type": "novice",
     "name": "Fire Arms",
+    "requires": {
+      "attackorder": 1
+    },
     "dps_support": [
       {
         "type": "buff",
@@ -441,6 +444,9 @@ var skills = {
     "id": "freezearms",
     "type": "novice",
     "name": "Freeze Arms",
+    "requires": {
+      "attackorder": 1
+    },
     "dps_support": [
       {
         "type": "buff",
@@ -463,6 +469,9 @@ var skills = {
     "id": "shockarms",
     "type": "novice",
     "name": "Shock Arms",
+    "requires": {
+      "attackorder": 1
+    },
     "dps_support": [
       {
         "type": "buff",
@@ -484,8 +493,21 @@ var skills = {
   "reinforce": {
     "id": "reinforce",
     "type": "novice",
-    "name": "Reinforce"
-  }
+    "name": "Reinforce",
+    "requires": {
+      "guardorder": 2
+    },
+  },
+  "royalveil": {
+    "id": "royalveil",
+    "type": "novice",
+    "name": "Royal Veil",
+  },
+  "monarchmarch": {
+    "id": "monarchmarch",
+    "type": "novice",
+    "name": "Monarch March",
+  },
 };
 
 export default skills;
